@@ -1,0 +1,28 @@
+.login_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    background-color: var(--back-color);
+}
+
+.login_form *:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.login_form label {
+    color: rgb(200, 200, 200);
+}
+
+.login_form__error {
+    background-color: pink;
+    outline: 1px solid red;
+    padding: 10px 0;
+    color: red;
+    min-width: 100%;
+    text-align: center;
+}
+
+.login_form__error_disabled {
+    display: none;
+}
