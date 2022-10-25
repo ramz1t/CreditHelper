@@ -1,0 +1,30 @@
+.input_wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    height: 30px;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    outline: 2px solid white
+}
+
+input:focus {
+    outline: 3px solid var(--back-color)
+}
+
+@media(prefers-color-scheme: light) {
+    input {
+        outline: 2px solid black
+    }
+
+    .input_wrapper p>b {
+        color: red;
+    }
+}
+
+.input_wrapper p>b {
+    color: rgb(255, 67, 67);
+}

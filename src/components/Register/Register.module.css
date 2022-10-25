@@ -5,7 +5,8 @@
     justify-content: center;
 }
 
-.login_form {
+.register_form {
+    width: 300px;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -14,22 +15,16 @@
     border-radius: 15px;
 }
 
-.login_form *:not(:last-child) {
+.register_form *:not(:last-child) {
     margin-bottom: 10px;
 }
 
-.login_form input, .login_form button, .login_form__error {
+.register_form button,
+.register_form__error {
     border-radius: 10px;
 }
 
-.login_form input {
-    height: 30px;
-    width: 220px;
-    text-align: center;
-    border: none;
-}
-
-.login_form button {
+.register_form button {
     background: none;
     border: none;
     outline: 2px solid white;
@@ -39,42 +34,39 @@
     line-height: 30px;
 }
 
-.login_form button:hover {
+.register_form button:hover {
     color: black;
     background-color: white;
 }
 
-.login_form__error {
-    background-color: pink;
-    outline: 2px solid red;
-    padding: 10px 0;
-    color: red;
-    min-width: 100%;
+.register_form button:disabled {
+    background-color: gainsboro;
+    outline: 2px solid rgb(82, 82, 82);
+    color: grey;
+    cursor: not-allowed;
+}
+
+.register_form button:disabled:hover {
+    background-color: gainsboro;
+    color: grey;
+}
+
+.register_form h1 {
     text-align: center;
 }
 
-.login_form__error_disabled {
-    display: none;
-}
-
-.login_form h1 {
-    text-align: center;
-}
-
-.login_form a {
+.register_form a {
     text-decoration: underline;
 }
 
 @media(prefers-color-scheme: light) {
-    .login_form button, .login_form, .login_form input {
+
+    .register_form button,
+    .register_form {
         outline: 2px solid var(--back-color)
     }
 
-    .login_form input:focus {
-        outline: 3px solid var(--back-color)
-    }
-
-    .login_form button:hover {
+    .register_form button:hover {
         background-color: var(--back-color);
         color: white;
     }
