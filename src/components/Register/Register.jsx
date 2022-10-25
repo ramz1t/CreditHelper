@@ -24,7 +24,7 @@ const Register = () => {
             <form className={s.register_form} onSubmit={register}>
                 <h1>Регистрация</h1>
                 <CInput title='Имя' autoRef={true} type='text' instance={name} />
-                <CInput title='Фамилия' autoRef={false} type='text' instance={surname} />
+                <CInput title='Фамилия' type='text' instance={surname} />
                 <CInput title='Почта' type='text' instance={email} />
                 <CInput title='Имя пользователя' type='text' instance={login} />
                 <CInput title='Пароль' type='password' instance={pwd} />

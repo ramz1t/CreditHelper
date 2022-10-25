@@ -1,4 +1,5 @@
 .App {
+    position: relative;
     display: flex;
     flex-direction: column;
     background-color: var(--back-color);
@@ -14,6 +15,7 @@
     .App {
         background-color: white;
     }
+
     * {
         color: var(--back-color);
         font-family: Main;
@@ -21,6 +23,11 @@
 }
 
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: BoldTitle;
 }

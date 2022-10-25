@@ -88,6 +88,7 @@ const CInput = (props) => {
             {(props.instance.isDirty && props.instance.pwdError) && <p><b>Пароль должен быть не менее 8 символов, содержать маленькие и большие буквы, минимум одну цифру и один спецсимвол</b></p>}
             {(props.instance.isDirty && props.instance.isEmpty) && <p><b>Поле не может быть пустым</b></p>}
             {(props.instance.isDirty && props.instance.matchError) && <p><b>Пароли не совпадают</b></p>}
+            {(props.instance.isDirty && props.instance.minLengthError) && <p><b>Мало символов</b></p>}
         </div>
     )
 }

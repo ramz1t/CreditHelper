@@ -3,7 +3,7 @@
     flex-direction: column;
 }
 
-input {
+.input_wrapper input {
     height: 30px;
     text-align: center;
     border: none;
@@ -11,12 +11,12 @@ input {
     outline: 2px solid white
 }
 
-input:focus {
+.input_wrapper input:focus {
     outline: 3px solid var(--back-color)
 }
 
 @media(prefers-color-scheme: light) {
-    input {
+    .input_wrapper input {
         outline: 2px solid black
     }
 

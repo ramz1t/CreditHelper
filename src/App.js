@@ -5,23 +5,35 @@ import {
     createBrowserRouter,
     RouterProvider,
     Route,
+    NavLink
 } from "react-router-dom";
 import Register from './components/Register/Register';
+import DarkModeSwitch from './components/DarkModeSwitch/DarkModeSwitch';
+import NotFoundTemplate from './components/NotFoundTemplate/NotFoundTemplate';
 
 const router = createBrowserRouter([
     {
-        path: "/login",
-        element: <Login />,
-    },
-    {
-        path: '/register',
-        element: <Register />
+        path: "/",
+        element: <NavLink to="login">Login</NavLink>,
+        errorElement: <NotFoundTemplate url='/' />,
+        children: [
+            {
+                path: "login",
+                element: <Login />
+            },
+            {
+                path: "register",
+                element: <Register />
+            }
+        ]
     }
 ]);
 
 function App() {
+    debugger;
     return (
         <div className="App">
+            <DarkModeSwitch />
             <RouterProvider router={router} />
         </div>
     );
