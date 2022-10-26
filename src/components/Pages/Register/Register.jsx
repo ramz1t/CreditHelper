@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState, useRef } from "react";
 import s from './Register.module.css';
 import { NavLink } from "react-router-dom";
-import { CInput, useInput } from "../CInput/CInput";
+import { CInput, useInput } from "../../UI/CInput/CInput";
 
 const Register = () => {
     const name = useInput('', { isEmpty: true })

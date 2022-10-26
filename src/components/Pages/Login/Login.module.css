@@ -6,6 +6,7 @@
 }
 
 .login_form {
+    width: 250px;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -18,13 +19,14 @@
     margin-bottom: 10px;
 }
 
-.login_form input, .login_form button, .login_form__error {
+.login_form input,
+.login_form button,
+.login_form__error {
     border-radius: 10px;
 }
 
 .login_form input {
     height: 30px;
-    width: 220px;
     text-align: center;
     border: none;
 }
@@ -44,12 +46,23 @@
     background-color: white;
 }
 
+.login_form button:disabled {
+    background-color: gainsboro;
+    outline: 2px solid rgb(82, 82, 82);
+    color: grey;
+    cursor: not-allowed;
+}
+
+.login_form button:disabled:hover {
+    background-color: gainsboro;
+    color: grey;
+}
+
 .login_form__error {
     background-color: pink;
     outline: 2px solid red;
-    padding: 10px 0;
+    padding: 10px;
     color: red;
-    min-width: 100%;
     text-align: center;
 }
 
@@ -66,7 +79,10 @@
 }
 
 @media(prefers-color-scheme: light) {
-    .login_form button, .login_form, .login_form input {
+
+    .login_form button,
+    .login_form,
+    .login_form input {
         outline: 2px solid var(--back-color)
     }
 

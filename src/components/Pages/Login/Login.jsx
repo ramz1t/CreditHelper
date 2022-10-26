@@ -1,15 +1,20 @@
 import React from "react";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useContext } from "react";
 import s from './Login.module.css'
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import AuthContext from "../../../context/AuthProvider";
+import axios from "../../../api/axios";
+
+const LOGIN_URL = '/token'
+const SUCCESS_URL = '/home'
 
 const Login = () => {
-
+    const { auth, setAuth } = useContext(AuthContext)
     const [login, setLogin] = useState('')
     const [pwd, setPwd] = useState('')
     const [error, setError] = useState('')
-
     const loginRef = useRef()
+    const navigate = useNavigate()
 
     useEffect(() => {
         loginRef.current.focus()
@@ -19,18 +24,29 @@ const Login = () => {
         setError('')
     }, [login, pwd])
 
-    const authorize = (e) => {
-        const loginDB = 'username'
-        const pwdDB = 'password'
+    const authorize = async (e) => {
         e.preventDefault()
-        if (login === '' || pwd === '') {
-            setError('Заполнены не все поля')
-            return
-        } else if (loginDB !== login || pwdDB !== pwd) {
-            setError('Wrong credentials')
-            return
-        } else {
-            setError('Done!')
+        try {
+            const response = await axios.post(
+                LOGIN_URL,
+                JSON.stringify({ login, pwd }),
+                {
+                    headers: {
+                        'accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    }
+                }
+            )
+            const accessToken = response?.data?.token
+            const authTime = new Date().toLocaleString()
+            setAuth({ login, accessToken, authTime })
+            navigate(SUCCESS_URL)
+        } catch (err) {
+            if (!err?.response) {
+                setError('Сервер не отвечает')
+            } else {
+                setError(err?.response?.data?.message)
+            }
         }
     }
 
@@ -55,7 +71,7 @@ const Login = () => {
                     value={pwd}
                     onChange={(e) => setPwd(e.target.value)}
                 />
-                <button>Войти</button>
+                <button disabled={login === '' || pwd === ''}>Войти</button>
                 <p style={{ marginBottom: 0, marginTop: "10px" }}>Нет аккаунта?</p>
                 <NavLink to="/register">Регистрация</NavLink>
             </form>
