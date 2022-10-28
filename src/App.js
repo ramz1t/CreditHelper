@@ -1,35 +1,45 @@
 import './App.css';
-import Login from './components/Pages/Login/Login';
+import Login from './Pages/Login/Login';
 import {
     createBrowserRouter,
     RouterProvider,
 } from "react-router-dom";
-import Register from './components/Pages/Register/Register';
-import DarkModeSwitch from './components/UI/DarkModeSwitch/DarkModeSwitch';
+import Register from './Pages/Register/Register';
+import DarkModeSwitch from './components/DarkModeSwitch/DarkModeSwitch';
 // import NotFoundTemplate from './components/NotFoundTemplate/NotFoundTemplate';
-import Home from './components/Pages/Home/Home';
+import Home from './Pages/Home/Home';
+import ConnectionStatus from './components/ConnectionStatus/ConnectionStatus';
+import AllCredits from './Pages/AllCredits/AllCredits';
 
 const router = createBrowserRouter([
     {
-        path: "login",
+        path: "/login",
         element: <Login />
     },
     {
-        path: "register",
+        path: "/register",
         element: <Register />
     },
     {
-        path: "home",
+        path: "/home/add",
         element: <Home />
+    },
+    {
+        path: "/home/my_credits",
+        element: <AllCredits />
     }
 ]);
 
 function App() {
     return (
-        <div className="App">
-            <DarkModeSwitch />
-            <RouterProvider router={router} />
-        </div>
+        <>
+
+            <div className="App">
+                <ConnectionStatus />
+                {/* <DarkModeSwitch /> */}
+                <RouterProvider router={router} />
+            </div>
+        </>
     );
 }
 

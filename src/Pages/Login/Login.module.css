@@ -11,7 +11,7 @@
     flex-direction: column;
     margin: 0 auto;
     padding: 20px;
-    outline: 2px solid white;
+    outline: 2px solid var(--text-color);
     border-radius: 15px;
 }
 
@@ -29,12 +29,17 @@
     height: 30px;
     text-align: center;
     border: none;
+    outline: 2px solid var(--text-color)
+}
+
+.login_form input:focus {
+    outline: 3px solid var(--text-color)
 }
 
 .login_form button {
     background: none;
     border: none;
-    outline: 2px solid white;
+    outline: 2px solid var(--text-color);
     height: 30px;
     margin-top: 10px;
     font-family: BoldTitle;
@@ -42,8 +47,8 @@
 }
 
 .login_form button:hover {
-    color: black;
-    background-color: white;
+    color: var(--back-color);
+    background-color: var(--text-color);
 }
 
 .login_form button:disabled {
@@ -76,22 +81,4 @@
 
 .login_form a {
     text-decoration: underline;
-}
-
-@media(prefers-color-scheme: light) {
-
-    .login_form button,
-    .login_form,
-    .login_form input {
-        outline: 2px solid var(--back-color)
-    }
-
-    .login_form input:focus {
-        outline: 3px solid var(--back-color)
-    }
-
-    .login_form button:hover {
-        background-color: var(--back-color);
-        color: white;
-    }
 }

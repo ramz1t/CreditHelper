@@ -2,14 +2,14 @@ import React from "react";
 import { useEffect, useState, useRef, useContext } from "react";
 import s from './Login.module.css'
 import { NavLink, useNavigate } from "react-router-dom";
-import AuthContext from "../../../context/AuthProvider";
-import axios from "../../../api/axios";
+import AuthContext from "../../context/AuthProvider";
+import axios from "../../api/axios";
 
 const LOGIN_URL = '/token'
-const SUCCESS_URL = '/home'
+const SUCCESS_URL = '/home/add'
 
 const Login = () => {
-    const { auth, setAuth } = useContext(AuthContext)
+    const { setAuth } = useContext(AuthContext)
     const [login, setLogin] = useState('')
     const [pwd, setPwd] = useState('')
     const [error, setError] = useState('')
@@ -37,9 +37,8 @@ const Login = () => {
                     }
                 }
             )
-            const accessToken = response?.data?.token
-            const authTime = new Date().toLocaleString()
-            setAuth({ login, accessToken, authTime })
+            setAuth(response?.data)
+            document.cookie = `token=${response?.data?.token}`
             navigate(SUCCESS_URL)
         } catch (err) {
             if (!err?.response) {

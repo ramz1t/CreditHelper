@@ -12,11 +12,11 @@
     flex-direction: column;
     margin: 0 auto;
     padding: 20px;
-    outline: 2px solid white;
+    outline: 2px solid var(--text-color);
     border-radius: 15px;
 }
 
-.register_form *:not(:last-child) {
+.register_form> :not(:last-child) {
     margin-bottom: 10px;
 }
 
@@ -29,7 +29,7 @@
 .register_form button {
     background: none;
     border: none;
-    outline: 2px solid white;
+    outline: 2px solid var(--text-color);
     height: 30px;
     margin-top: 10px;
     font-family: BoldTitle;
@@ -61,19 +61,6 @@
     text-decoration: underline;
 }
 
-@media(prefers-color-scheme: light) {
-
-    .register_form button,
-    .register_form {
-        outline: 2px solid var(--back-color)
-    }
-
-    .register_form button:hover {
-        background-color: var(--back-color);
-        color: white;
-    }
-}
-
 .register_form p[data-banner-type='error'] {
     background-color: pink;
     outline: 2px solid red;
@@ -88,4 +75,12 @@
     padding: 10px;
     color: green;
     text-align: center;
+}
+
+.register_form__input_field input {
+    outline: 2px solid var(--text-color)
+}
+
+.register_form__input_field input:focus {
+    outline: 3px solid var(--text-color)
 }

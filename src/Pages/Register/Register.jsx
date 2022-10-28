@@ -1,9 +1,9 @@
 import React from "react";
-import { useEffect, useState, useRef } from "react";
+import { useState } from "react";
 import s from './Register.module.css';
 import { NavLink } from "react-router-dom";
-import { CInput, useInput } from "../../UI/CInput/CInput";
-import axios from "../../../api/axios";
+import { CInput, useInput } from "../../components/CInput/CInput";
+import axios from "../../api/axios";
 
 const REGISTER_URL = '/create_user'
 
@@ -57,12 +57,12 @@ const Register = () => {
                 <h1>Регистрация</h1>
                 {error ? <p data-banner-type='error'>{error}</p> : ''}
                 {success ? <p data-banner-type='success'>Аккаунт создан</p> : ''}
-                <CInput title='Имя' autoRef={true} type='text' instance={name} />
-                <CInput title='Фамилия' type='text' instance={surname} />
-                <CInput title='Почта' type='text' instance={email} />
-                <CInput title='Имя пользователя' type='text' instance={login} />
-                <CInput title='Пароль' type='password' instance={pwd} />
-                <CInput title='Повторите пароль' type='password' instance={repeatPwd} />
+                <CInput className={s.register_form__input_field} title='Имя' autoRef={true} type='text' instance={name} />
+                <CInput className={s.register_form__input_field} title='Фамилия' type='text' instance={surname} />
+                <CInput className={s.register_form__input_field} title='Почта' type='text' instance={email} />
+                <CInput className={s.register_form__input_field} title='Имя пользователя' type='text' instance={login} />
+                <CInput className={s.register_form__input_field} title='Пароль' type='password' instance={pwd} />
+                <CInput className={s.register_form__input_field} title='Повторите пароль' type='password' instance={repeatPwd} />
                 <button disabled={!formValid || repeatPwd.value === ''}>Зарегестрироваться</button>
                 <p style={{ marginBottom: 0, marginTop: "10px" }}>Уже есть аккаунт?</p>
                 <NavLink to="/login">Войти</NavLink>

@@ -1,0 +1,22 @@
+.inputs_wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.inputs_wrapper>label {
+    font-weight: 600;
+}
+
+.calculator_input input {
+    outline: 2px solid var(--green-color);
+    margin-bottom: 15px;
+}
+
+.calculator_input input:focus {
+    outline: 3px solid var(--green-color)
+}
+
+.calculator_input label {
+    font-weight: 600;
+}

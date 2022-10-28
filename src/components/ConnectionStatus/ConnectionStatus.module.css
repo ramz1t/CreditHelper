@@ -1,0 +1,9 @@
+.container {
+    color: red;
+    width: 100%;
+    border-bottom: 2px solid red;
+    text-align: center;
+    font-size: 15px;
+    font-family: BoldTitle;
+    padding: 10px 0;
+}

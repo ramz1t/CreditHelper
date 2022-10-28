@@ -1,6 +1,29 @@
-:root {
-  --back-color: rgb(23, 23, 23);
-  --gold-color: #E6C675;
+@media (prefers-color-scheme: light) {
+  :root {
+    --back-color: white;
+    --text-color: rgb(23, 23, 23);
+    --green-color: #ABDCAC;
+    --input-color: white;
+    --error-color: red;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --back-color: rgb(23, 23, 23);
+    --text-color: rgb(234, 232, 232);
+    --green-color: #b2dab3;
+    --input-color: rgb(163, 163, 163);
+    --error-color: rgb(255, 67, 67);
+  }
+}
+
+#root {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--back-color);
 }
 
 body {

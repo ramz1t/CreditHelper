@@ -13,6 +13,7 @@ const useInput = (initialValue, validations) => {
         setValue(e.target.value)
         setIsDirty(true)
     }
+
     return {
         value,
         isDirty,
@@ -28,6 +29,8 @@ const useValidation = (value, validations) => {
     const [emailError, setEmailError] = useState(false)
     const [pwdError, setPwdError] = useState(false)
     const [matchError, setMatchError] = useState(false)
+    const [intError, setIntError] = useState(false)
+    const [floatError, setFloatError] = useState(false)
 
     useEffect(() => {
         for (const validation in validations) {
@@ -50,16 +53,27 @@ const useValidation = (value, validations) => {
                 case 'isMatch':
                     setMatchError(value !== validations[validation])
                     break
+                case 'isInt':
+                    setIntError(!(!isNaN(value) && (function (x) { return (x | 0) === x; })(parseFloat(value))))
+                    break
+                case 'isFloat':
+                    var re = /^[-+]?[0-9]+\.[0-9]+$/
+                    setFloatError(!(re.test(String(value)) || (!isNaN(value) && (function (x) { return (x | 0) === x; })(parseFloat(value)))))
+                    break
+                default:
+                    break
             }
         }
-    }, [value])
+    }, [value, validations])
 
     return {
         isEmpty,
         minLengthError,
         matchError,
         pwdError,
-        emailError
+        emailError,
+        intError,
+        floatError
     }
 }
 
@@ -74,8 +88,8 @@ const CInput = (props) => {
     }, [])
 
     return (
-        <div className={s.input_wrapper}>
-            <label htmlFor={props.id}>{`${props.title}:`}</label>
+        <div className={props.className ? `${s.container} ${props.className}` : s.container}>
+            {props.title ? <label htmlFor={props.id}>{props.title}</label> : null}
             <input
                 id={props.id}
                 type={props.type}
@@ -84,11 +98,13 @@ const CInput = (props) => {
                 onChange={props.instance.checkValue}
                 onBlur={props.instance.checkValue}
             />
-            {(props.instance.isDirty && props.instance.emailError) && <p><b>Ошибка в адресе почты</b></p>}
-            {(props.instance.isDirty && props.instance.pwdError) && <p><b>Пароль должен быть не менее 8 символов, содержать маленькие и большие буквы, минимум одну цифру и один спецсимвол</b></p>}
-            {(props.instance.isDirty && props.instance.isEmpty) && <p><b>Поле не может быть пустым</b></p>}
-            {(props.instance.isDirty && props.instance.matchError) && <p><b>Пароли не совпадают</b></p>}
-            {(props.instance.isDirty && props.instance.minLengthError) && <p><b>Мало символов</b></p>}
+            {(props.instance.isDirty && props.instance.emailError) && <p>Ошибка в адресе почты</p>}
+            {(props.instance.isDirty && props.instance.pwdError) && <p>Пароль должен быть не менее 8 символов, содержать маленькие и большие буквы, минимум одну цифру и один спецсимвол</p>}
+            {(props.instance.isDirty && props.instance.isEmpty) && <p>Поле не может быть пустым</p>}
+            {(props.instance.isDirty && props.instance.matchError) && <p>Пароли не совпадают</p>}
+            {(props.instance.isDirty && props.instance.minLengthError) && <p>Мало символов</p>}
+            {(props.instance.isDirty && props.instance.intError) && <p>Введите целое число</p>}
+            {(props.instance.isDirty && props.instance.floatError) && <p>Введите целое или дробное число</p>}
         </div>
     )
 }

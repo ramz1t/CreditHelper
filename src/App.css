@@ -2,26 +2,20 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-color: var(--back-color);
     min-height: 100vh;
+    width: 1200px;
 }
 
 * {
-    color: white;
+    color: var(--text-color);
     font-family: Main;
 }
 
-@media(prefers-color-scheme: light) {
-    .App {
-        background-color: white;
-    }
-
-    * {
-        color: var(--back-color);
-        font-family: Main;
-    }
+input {
+    background-color: var(--input-color);
 }
-
 
 h1,
 h2,

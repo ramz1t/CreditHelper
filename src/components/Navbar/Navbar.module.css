@@ -1,0 +1,40 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: var(--green-color);
+    margin-bottom: 20px;
+    position: absolute;
+    height: 60px;
+    width: 100vw;
+}
+
+.container>* {
+    padding-left: 20px;
+    color: black
+}
+
+.container h1 {
+    padding-right: 20px;
+}
+
+.navbar__button {
+    text-decoration: none;
+}
+
+.navbar__button_active {
+    text-decoration: underline;
+}
+
+#logout_btn {
+    position: absolute;
+    right: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#logout_btn svg {
+    padding-left: 5px;
+    stroke: black
+}
