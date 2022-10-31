@@ -17,13 +17,23 @@ const useThemeDetector = () => {
     return isDarkTheme
 }
 
-const DarkModeSwitch = () => {
 
+
+const DarkModeSwitch = () => {
+    const [isDark, setIsDark] = useState('')
     const isDarkTheme = useThemeDetector();
+
+    const handleTheme = () => {
+        setIsDark(!isDark)
+    }
+
+    useEffect(() => {
+        setIsDark(isDarkTheme)
+    }, [])
 
     return (
         <div className={s.switch} dataDark={isDarkTheme}>
-            <input type="checkbox" />
+            <input onChange={handleTheme} checked={isDark} type="checkbox" />
         </div>
     )
 }

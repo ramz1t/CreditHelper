@@ -36,7 +36,7 @@ function App() {
 
             <div className="App">
                 <ConnectionStatus />
-                {/* <DarkModeSwitch /> */}
+                <DarkModeSwitch />
                 <RouterProvider router={router} />
             </div>
         </>

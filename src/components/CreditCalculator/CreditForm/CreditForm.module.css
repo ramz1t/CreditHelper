@@ -1,0 +1,46 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr) repeat(2, 30px);
+    gap: 25px;
+}
+
+.calculator_input input {
+    outline: 2px solid var(--green-color);
+    margin-bottom: 15px;
+}
+
+.calculator_input input:focus {
+    outline: 3px solid var(--green-color)
+}
+
+.calculator_input label {
+    font-weight: 600;
+}
+
+.container button {
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.button_red {
+    border: 1px solid var(--error-color);
+}
+
+.button_green {
+    border: 1px solid green;
+}
+
+.container button>svg {
+    stroke: var(--error-color);
+}
+
+.infofield {
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
