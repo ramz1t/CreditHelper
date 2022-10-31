@@ -22,7 +22,18 @@ const CreditCalculator = () => {
                 <p>Переплата по кредиту:</p>
             </div>
             {forms}
-            <button className={s.add_button} onClick={addForm}><PlusIcon /></button>
+            <div className={s.buttons_wrapper}>
+                <button className={s.add_button} onClick={addForm}>
+                    <PlusIcon />
+                </button>
+                <button
+                    className={s.clear_button}
+                    onClick={() => setForms([])}
+                >
+                    Очистить формы
+                </button>
+            </div>
+
         </>
     )
     //TODO: clear all

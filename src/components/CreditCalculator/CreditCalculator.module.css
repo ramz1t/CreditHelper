@@ -11,10 +11,33 @@
 .add_button {
     background: none;
     border: none;
-    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
 .add_button>svg {
     stroke: var(--green-color);
     transform: scale(1.5);
+}
+
+.clear_button {
+    margin-left: 20px;
+    padding: 10px;
+    border: none;
+    color: var(--text-color);
+    border-radius: 10px;
+    cursor: pointer
+}
+
+.clear_button:hover {
+    outline: 2px solid var(--text-color);
+}
+
+.buttons_wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }

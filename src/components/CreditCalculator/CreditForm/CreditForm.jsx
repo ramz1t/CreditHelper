@@ -18,6 +18,7 @@ const CreditForm = () => {
     const creditPercent = useInput('', { isFloat: true })
     const yearCount = useInput('', { isInt: true })
     const [monthlyPayment, setMonthlyPayment] = useState(0.00)
+    const [deleted, setDeleted] = useState(false)
 
     useEffect(() => {
         if ([creditSum, creditPercent, yearCount].every(item => item.allValid && item.value !== '')) {
@@ -28,22 +29,27 @@ const CreditForm = () => {
     }, [creditSum, creditPercent, yearCount])
 
     return (
-        <div className={s.container}>
-            <CInput className={s.calculator_input} instance={creditSum} />
-            <CInput className={s.calculator_input} instance={creditPercent} />
-            <CInput className={s.calculator_input} instance={yearCount} />
-            <div className={s.infofield}>
-                <p>{parseFloat(monthlyPayment).toFixed(2)}</p>
-            </div>
-            <div className={s.infofield}>
-                <p>{(monthlyPayment * yearCount.value * 12).toFixed(2)}</p>
-            </div>
-            <div className={s.infofield}>
-                {monthlyPayment ? <p>{(monthlyPayment * yearCount.value * 12 - creditSum.value).toFixed(2)}</p> : <p>0.00</p>}
-            </div>
-            <button className={s.button_red}><TrashIcon /></button>
-            <button className={s.button_green}><SaveIcon /></button>
-        </div>
+        <>
+            {deleted ? null :
+                <div className={s.container}>
+                    <CInput className={s.calculator_input} instance={creditSum} />
+                    <CInput className={s.calculator_input} instance={creditPercent} />
+                    <CInput className={s.calculator_input} instance={yearCount} />
+                    <div className={s.infofield}>
+                        <p>{parseFloat(monthlyPayment).toFixed(2)}</p>
+                    </div>
+                    <div className={s.infofield}>
+                        <p>{(monthlyPayment * yearCount.value * 12).toFixed(2)}</p>
+                    </div>
+                    <div className={s.infofield}>
+                        {monthlyPayment ? <p>{(monthlyPayment * yearCount.value * 12 - creditSum.value).toFixed(2)}</p> : <p>0.00</p>}
+                    </div>
+                    <button onClick={() => setDeleted(true)} className={s.button_red}><TrashIcon /></button>
+                    <button className={s.button_green}><SaveIcon /></button>
+                </div>
+            }
+
+        </>
     )
 }
 
