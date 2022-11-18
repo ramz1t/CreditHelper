@@ -9,7 +9,8 @@ const Navbar = () => {
     const [expanded, setExpanded] = useState(false)
 
     return (
-        <nav className={`${s.container} ${expanded ? s.container_expanded : ''}`}>
+        // eslint-disable-next-line jsx-a11y/role-supports-aria-props
+        <nav className={s.container} aria-expanded={expanded}>
             <NavLink id={s.home} to='/'>Credit Helper</NavLink>
             <button className={s.container__expandbtn} onClick={() => { setExpanded(!expanded) }}><GiHamburgerMenu /></button>
             <NavLink className={({ isActive }) => isActive ? s.navbar__button_active : s.navbar__button} to='/home/add'>Калькулятор кредитов</NavLink>

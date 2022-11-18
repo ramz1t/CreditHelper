@@ -9,7 +9,7 @@
     overflow-y: hidden;
 }
 
-.container_expanded {
+.container[aria-expanded="true"] {
     height: fit-content;
     padding-bottom: 20px;
 }
