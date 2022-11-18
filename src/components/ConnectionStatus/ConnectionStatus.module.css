@@ -1,6 +1,9 @@
 .container {
+    position: absolute;
+    bottom: 0px;
+    background-color: var(--back-color);
     color: red;
-    width: 100%;
+    width: 100vw;
     border-bottom: 2px solid red;
     text-align: center;
     font-size: 15px;

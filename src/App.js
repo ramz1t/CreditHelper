@@ -2,6 +2,8 @@ import './App.css';
 import Login from './Pages/Login/Login';
 import {
     createBrowserRouter,
+    Route,
+    Routes,
     RouterProvider,
 } from "react-router-dom";
 import Register from './Pages/Register/Register';
@@ -10,8 +12,14 @@ import DarkModeSwitch from './components/DarkModeSwitch/DarkModeSwitch';
 import Home from './Pages/Home/Home';
 import ConnectionStatus from './components/ConnectionStatus/ConnectionStatus';
 import AllCredits from './Pages/AllCredits/AllCredits';
+import Landing from './Pages/Landing/Landing';
+import Navbar from './components/Navbar/Navbar';
 
 const router = createBrowserRouter([
+    {
+        path: '',
+        element: <Landing />
+    },
     {
         path: "/login",
         element: <Login />
@@ -32,14 +40,17 @@ const router = createBrowserRouter([
 
 function App() {
     return (
-        <>
-
-            <div className="App">
-                <ConnectionStatus />
-                <DarkModeSwitch />
-                <RouterProvider router={router} />
-            </div>
-        </>
+        <div className="App">
+            <Navbar />
+            <ConnectionStatus />
+            <Routes>
+                <Route path='' element={<Landing />} />
+                <Route path='login' element={<Login />} />
+                <Route path='register' element={<Register />} />
+                <Route path='home/add' element={<Home />} />
+                <Route path='home/all' element={<AllCredits />} />
+            </Routes>
+        </div>
     );
 }
 

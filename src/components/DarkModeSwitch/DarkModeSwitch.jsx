@@ -20,16 +20,12 @@ const useThemeDetector = () => {
 
 
 const DarkModeSwitch = () => {
-    const [isDark, setIsDark] = useState('')
     const isDarkTheme = useThemeDetector();
+    const [isDark, setIsDark] = useState(isDarkTheme)
 
     const handleTheme = () => {
         setIsDark(!isDark)
     }
-
-    useEffect(() => {
-        setIsDark(isDarkTheme)
-    }, [])
 
     return (
         <div className={s.switch} dataDark={isDarkTheme}>

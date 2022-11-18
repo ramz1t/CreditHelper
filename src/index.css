@@ -1,9 +1,14 @@
+:root {
+  --nav-height: 60px;
+  --nav-page-gap: 10px;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     --back-color: white;
     --text-color: rgb(23, 23, 23);
     --green-color: #ABDCAC;
-    --input-color: white;
+    --input-bg-color: white;
     --error-color: red;
   }
 }
@@ -13,8 +18,36 @@
     --back-color: rgb(23, 23, 23);
     --text-color: rgb(234, 232, 232);
     --green-color: #b2dab3;
-    --input-color: rgb(163, 163, 163);
+    --input-bg-color: rgb(75, 75, 75);
     --error-color: rgb(255, 67, 67);
+  }
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+  :root {
+    --landing-header-font-size: 70px
+  }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+  :root {
+    --landing-header-font-size: 120px
+  }
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width : 1024px) {
+  :root {
+    --landing-header-font-size: 120px
+  }
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width : 1921px) {
+  :root {
+    --landing-header-font-size: 175px
   }
 }
 

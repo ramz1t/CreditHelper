@@ -1,6 +1,6 @@
 {
   "name": "credithelper_frontend",
-  "homepage": "/login",
+  "homepage": "/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

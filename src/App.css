@@ -5,7 +5,7 @@
     align-items: center;
     background-color: var(--back-color);
     min-height: 100vh;
-    width: 1200px;
+    width: min(1200px, 100vw);
 }
 
 * {
@@ -14,7 +14,8 @@
 }
 
 input {
-    background-color: var(--input-color);
+    background-color: var(--input-bg-color);
+    color: var(--text-color)
 }
 
 h1,
