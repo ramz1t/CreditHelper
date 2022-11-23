@@ -2,8 +2,11 @@ import React from "react";
 import { useState } from "react";
 import s from './Register.module.css';
 import { NavLink } from "react-router-dom";
-import { CInput, useInput } from "../../components/CInput/CInput";
+import CInput from "../../components/CInput/CInput";
+import useInput from "../../hooks/useInput";
 import axios from "../../api/axios";
+import { useContext } from "react";
+import AuthContext from "../../context/AuthProvider";
 
 const REGISTER_URL = '/create_user'
 
@@ -16,39 +19,15 @@ const Register = () => {
     const email = useInput('', { isEmail: true })
     const pwd = useInput('', { isPassword: true })
     const repeatPwd = useInput('', { isMatch: pwd.value })
+    const { registerUser } = useContext(AuthContext)
 
     const formValid = [name.allValid, surname.allValid, login.allValid, email.allValid, pwd.allValid, repeatPwd.allValid].every(item => item)
 
     const register = async (e) => {
         e.preventDefault()
-        try {
-            const response = await axios.post(
-                REGISTER_URL,
-                JSON.stringify({
-                    name: name.value,
-                    surname: surname.value,
-                    login: login.value,
-                    email: email.value,
-                    pwd: pwd.value
-                }),
-                {
-                    headers: {
-                        'accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    }
-                }
-            )
-            setError('')
-            setSuccess(true)
-        } catch (err) {
-            if (!err?.response) {
-                setSuccess(false)
-                setError('Сервер не отвечает')
-            } else {
-                setSuccess(false)
-                setError(err?.response?.data?.message)
-            }
-        }
+        const [responseError, responseStatus] = await registerUser(name.value, surname.value, login.value, email.value, pwd.value)
+        setError(responseError)
+        setSuccess(responseStatus)
     }
 
     return (

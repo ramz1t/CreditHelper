@@ -1,20 +1,15 @@
 import React from "react";
 import { useEffect, useState, useRef, useContext } from "react";
 import s from './Login.module.css'
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import AuthContext from "../../context/AuthProvider";
-import axios from "../../api/axios";
-
-const LOGIN_URL = '/token'
-const SUCCESS_URL = '/home/add'
 
 const Login = () => {
-    const { setAuth } = useContext(AuthContext)
+    const { loginUser } = useContext(AuthContext)
     const [login, setLogin] = useState('')
-    const [pwd, setPwd] = useState('')
+    const [password, setPassword] = useState('')
     const [error, setError] = useState('')
     const loginRef = useRef()
-    const navigate = useNavigate()
 
     useEffect(() => {
         loginRef.current.focus()
@@ -22,31 +17,11 @@ const Login = () => {
 
     useEffect(() => {
         setError('')
-    }, [login, pwd])
+    }, [login, password])
 
     const authorize = async (e) => {
         e.preventDefault()
-        try {
-            const response = await axios.post(
-                LOGIN_URL,
-                JSON.stringify({ login, pwd }),
-                {
-                    headers: {
-                        'accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    }
-                }
-            )
-            setAuth(response?.data)
-            document.cookie = `token=${response?.data?.token}`
-            navigate(SUCCESS_URL)
-        } catch (err) {
-            if (!err?.response) {
-                setError('Сервер не отвечает')
-            } else {
-                setError(err?.response?.data?.message)
-            }
-        }
+        setError(await loginUser(login, password))
     }
 
     return (
@@ -67,10 +42,10 @@ const Login = () => {
                 <input
                     id="password"
                     type="password"
-                    value={pwd}
-                    onChange={(e) => setPwd(e.target.value)}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                 />
-                <button disabled={login === '' || pwd === ''}>Войти</button>
+                <button disabled={login === '' || password === ''}>Войти</button>
                 <p style={{ marginBottom: 0, marginTop: "10px" }}>Нет аккаунта?</p>
                 <NavLink to="/register">Регистрация</NavLink>
             </form>

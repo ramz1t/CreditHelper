@@ -1,10 +1,11 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
-import { useInput } from './../../CInput/CInput'
+import { useState, useEffect, useContext } from 'react'
 import s from './CreditForm.module.css'
-import { CInput } from './../../CInput/CInput'
+import CInput from './../../CInput/CInput'
+import useInput from '../../../hooks/useInput'
 import { MdOutlineDeleteOutline as TrashIcon } from 'react-icons/md'
 import { AiOutlineFolderAdd as SaveIcon } from 'react-icons/ai'
+import AuthContext from '../../../context/AuthProvider'
 
 const getCreditResult = (creditSum, creditPercent, yearCount) => {
     const monthCount = yearCount * 12
@@ -19,6 +20,7 @@ const CreditForm = () => {
     const yearCount = useInput('', { isInt: true })
     const [monthlyPayment, setMonthlyPayment] = useState(0.00)
     const [deleted, setDeleted] = useState(false)
+    const { user } = useContext(AuthContext)
 
     useEffect(() => {
         if ([creditSum, creditPercent, yearCount].every(item => item.allValid && item.value !== '')) {
@@ -45,7 +47,7 @@ const CreditForm = () => {
                         {monthlyPayment ? <p>{(monthlyPayment * yearCount.value * 12 - creditSum.value).toFixed(2)}</p> : <p>0.00</p>}
                     </div>
                     <button onClick={() => setDeleted(true)} className={s.button_red}><TrashIcon /></button>
-                    <button className={s.button_green}><SaveIcon /></button>
+                    {user && <button className={s.button_green}><SaveIcon /></button>}
                 </div>
             }
 
