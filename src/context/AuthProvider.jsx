@@ -22,11 +22,11 @@ export const AuthProvider = ({ children }) => {
 
     const navigate = useNavigate();
 
-    const loginUser = async (username, password) => {
+    const loginUser = async (email, password) => {
         try {
             const response = await axios.post(
                 'api/token',
-                JSON.stringify({ username, password }),
+                JSON.stringify({ email, password }),
                 {
                     headers: {
                         'accept': 'application/json',
