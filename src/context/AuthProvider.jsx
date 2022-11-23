@@ -22,11 +22,11 @@ export const AuthProvider = ({ children }) => {
 
     const navigate = useNavigate();
 
-    const loginUser = async (username, pwd) => {
+    const loginUser = async (username, password) => {
         try {
             const response = await axios.post(
                 'api/token',
-                JSON.stringify({ username, pwd }),
+                JSON.stringify({ username, password }),
                 {
                     headers: {
                         'accept': 'application/json',
@@ -48,11 +48,11 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
-    const registerUser = async (name, surname, username, email, pwd) => {
+    const registerUser = async (name, surname, username, email, password) => {
         try {
             const response = await axios.post(
-                '/create_user',
-                JSON.stringify({ name, surname, username, email, pwd }),
+                'api/register',
+                JSON.stringify({ name, surname, username, email, password }),
                 {
                     headers: {
                         'accept': 'application/json',
