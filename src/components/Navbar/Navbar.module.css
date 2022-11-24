@@ -1,6 +1,7 @@
 .container {
     display: flex;
     flex-direction: row;
+    gap: 20px;
     align-items: center;
     background-color: var(--green-color);
     position: absolute;
@@ -8,6 +9,18 @@
     transition: height .2s;
     width: 100vw;
     overflow-y: hidden;
+}
+
+.container>* {
+    height: 100%;
+}
+
+.container>a {
+    line-height: var(--nav-height);
+}
+
+.container>:nth-child(1) {
+    padding-left: 20px;
 }
 
 .container[aria-expanded="true"] {
@@ -51,7 +64,6 @@
 }
 
 .container>* {
-    padding-left: 20px;
     color: black
 }
 
@@ -75,8 +87,11 @@
 }
 
 #logout_btn svg {
-    padding-left: 5px;
     stroke: black
+}
+
+#logout_btn>:nth-child(1) {
+    padding-right: 5px;
 }
 
 #home {

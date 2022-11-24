@@ -3,6 +3,10 @@
   --nav-page-gap: 10px;
 }
 
+/* * {
+  outline: 1px solid purple
+} */
+
 @media (prefers-color-scheme: light) {
   :root {
     --back-color: white;

@@ -7,7 +7,6 @@ const Home = () => {
 
     return (
         <>
-            <Navbar />
             <div className={s.container}>
                 <div className={s.calculator_wrapper}>
 

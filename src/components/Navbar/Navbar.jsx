@@ -2,9 +2,9 @@ import React from 'react'
 import { useState, useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import s from './Navbar.module.css'
-import { FiLogOut } from 'react-icons/fi'
 import { CgProfile } from 'react-icons/cg'
 import { GiHamburgerMenu } from 'react-icons/gi'
+import { HiOutlineLogin } from 'react-icons/hi'
 import AuthContext from '../../context/AuthProvider'
 
 const Navbar = () => {
@@ -21,10 +21,10 @@ const Navbar = () => {
                 (
                     <>
                         <NavLink className={({ isActive }) => isActive ? s.navbar__button_active : s.navbar__button} to='/home/all'>Мои кредиты</NavLink>
-                        <NavLink id={s.logout_btn} className={s.navbar__button} to='/profile'><CgProfile />{user.username}</NavLink>
+                        <NavLink id={s.logout_btn} className={s.navbar__button} to='/profile'><CgProfile /><p>{user.username}</p></NavLink>
                     </>
                 ) : (
-                    <NavLink id={s.logout_btn} className={s.navbar__button} to="/login">Войти<FiLogOut /></NavLink>
+                    <NavLink id={s.logout_btn} className={s.navbar__button} to="/login"><p>Войти</p><HiOutlineLogin /></NavLink>
                 )}
         </nav>
     )
