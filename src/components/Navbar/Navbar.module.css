@@ -36,21 +36,23 @@
     .container {
         flex-direction: column;
         align-items: flex-start;
+        gap: 0;
     }
 
-    .container>*:not(:last-child):not(:nth-child(1)) {
-        padding-bottom: 10px;
+    .container>a {
+        width: 100%;
+        padding-left: 20px;
     }
 
     .container__expandbtn {
         --expandbtn-size: 30px;
         position: absolute;
-        right: 20px;
-        top: calc((var(--nav-height) - var(--expandbtn-size)) / 2);
+        right: 10px;
+        top: calc((var(--nav-height) - 30px) / 2);
         padding: 0 !important;
         display: block;
-        height: var(--expandbtn-size);
-        width: var(--expandbtn-size);
+        height: 30px;
+        width: 30px;
         border: none;
         background: none;
         display: flex;

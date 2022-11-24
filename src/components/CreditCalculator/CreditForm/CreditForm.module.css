@@ -1,12 +1,21 @@
 .container {
     display: grid;
-    grid-template-columns: repeat(6, 1fr) repeat(2, 30px);
-    gap: 25px;
+    grid-template-columns: repeat(6, 1fr) 70px;
+    row-gap: 10px;
+    column-gap: 25px;
+}
+
+@media only screen and (max-device-width : 768px) {
+    .container {
+        grid-template-columns: repeat(3, 1fr);
+        padding-bottom: 10px;
+        padding-top: 25px;
+        border-top: 2px solid var(--text-color);
+    }
 }
 
 .calculator_input input {
     outline: 2px solid var(--green-color);
-    margin-bottom: 15px;
 }
 
 .calculator_input input:focus {
@@ -43,4 +52,10 @@
     height: 30px;
     display: flex;
     align-items: center;
+}
+
+.buttons_wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
 }

@@ -5,6 +5,7 @@
     align-items: center;
     background-color: var(--back-color);
     min-height: 100vh;
+    padding: 0 20px;
     width: min(1200px, 100vw);
 }
 

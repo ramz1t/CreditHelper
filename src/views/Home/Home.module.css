@@ -1,11 +1,14 @@
 .container {
     padding: 80px 0;
+    width: 100%;
 }
 
 .description {
     font-size: 20px;
 }
 
-.calculator_wrapper> :not(:last-child) {
-    margin-bottom: 15px;
+.calculator_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }

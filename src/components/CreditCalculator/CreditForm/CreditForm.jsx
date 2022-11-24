@@ -46,8 +46,10 @@ const CreditForm = () => {
                     <div className={s.infofield}>
                         {monthlyPayment ? <p>{(monthlyPayment * yearCount.value * 12 - creditSum.value).toFixed(2)}</p> : <p>0.00</p>}
                     </div>
-                    <button onClick={() => setDeleted(true)} className={s.button_red}><TrashIcon /></button>
-                    {user && <button className={s.button_green}><SaveIcon /></button>}
+                    <div className={s.buttons_wrapper}>
+                        <button onClick={() => setDeleted(true)} className={s.button_red}><TrashIcon /></button>
+                        {user && <button className={s.button_green}><SaveIcon /></button>}
+                    </div>
                 </div>
             }
 

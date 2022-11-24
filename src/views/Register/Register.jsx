@@ -4,11 +4,8 @@ import s from './Register.module.css';
 import { NavLink } from "react-router-dom";
 import CInput from "../../components/CInput/CInput";
 import useInput from "../../hooks/useInput";
-import axios from "../../api/axios";
 import { useContext } from "react";
 import AuthContext from "../../context/AuthProvider";
-
-const REGISTER_URL = '/create_user'
 
 const Register = () => {
     const [error, setError] = useState('')

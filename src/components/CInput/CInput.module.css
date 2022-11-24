@@ -12,10 +12,7 @@
 }
 
 .container p {
+    padding-top: 15px;
     color: var(--error-color);
     font-weight: 600;
-}
-
-.container> :not(:last-child) {
-    margin-bottom: 10px;
 }
