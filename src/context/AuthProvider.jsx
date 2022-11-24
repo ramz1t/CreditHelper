@@ -22,11 +22,11 @@ export const AuthProvider = ({ children }) => {
 
     const navigate = useNavigate();
 
-    const loginUser = async (email, password) => {
+    const loginUser = async (username, password) => {
         try {
             const response = await axios.post(
                 'api/token',
-                JSON.stringify({ email, password }),
+                JSON.stringify({ username, password }),
                 {
                     headers: {
                         'accept': 'application/json',
@@ -35,13 +35,13 @@ export const AuthProvider = ({ children }) => {
                 }
             )
             setAuthTokens(response.data);
-            setUser(jwt_decode(response.data.access));
             localStorage.setItem("authTokens", JSON.stringify(response.data));
             navigate('/home/add');
-            return '';
         } catch (err) {
             if (!err?.response) {
                 return 'Сервер не отвечает'
+            } else if (err?.response?.status === 403) {
+                return 'Неверный логин или пароль'
             } else {
                 return err?.response?.data?.message
             }
@@ -50,6 +50,7 @@ export const AuthProvider = ({ children }) => {
 
     const registerUser = async (name, surname, username, email, password) => {
         try {
+            // eslint-disable-next-line no-unused-vars
             const response = await axios.post(
                 'api/register',
                 JSON.stringify({ name, surname, username, email, password }),
