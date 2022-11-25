@@ -7,41 +7,41 @@ import { MdOutlineDeleteOutline as TrashIcon } from 'react-icons/md'
 import { AiOutlineFolderAdd as SaveIcon } from 'react-icons/ai'
 import AuthContext from '../../../context/AuthProvider'
 
-const getCreditResult = (creditSum, creditPercent, yearCount) => {
+const getCreditResult = (creditSum, rate, yearCount) => {
     const monthCount = yearCount * 12
-    const creditRate = creditPercent / 100 / 12
+    const creditRate = rate / 100 / 12
     const monthlyPayment = creditSum * creditRate / (1 - 1 / ((1 + creditRate) ** monthCount).toFixed(10))
     return monthlyPayment
 }
 
 const CreditForm = () => {
     const creditSum = useInput('', { isInt: true })
-    const creditPercent = useInput('', { isFloat: true })
+    const rate = useInput('', { isFloat: true })
     const yearCount = useInput('', { isInt: true })
     const [monthlyPayment, setMonthlyPayment] = useState(0.00)
     const [deleted, setDeleted] = useState(false)
     const { user } = useContext(AuthContext)
 
     useEffect(() => {
-        if ([creditSum, creditPercent, yearCount].every(item => item.allValid && item.value !== '')) {
-            setMonthlyPayment(getCreditResult(creditSum.value, creditPercent.value, yearCount.value))
+        if ([creditSum, rate, yearCount].every(item => item.allValid && item.value !== '')) {
+            setMonthlyPayment(getCreditResult(creditSum.value, rate.value, yearCount.value))
         } else {
             setMonthlyPayment(0.00)
         }
-    }, [creditSum, creditPercent, yearCount])
+    }, [creditSum, rate, yearCount])
 
     return (
         <>
             {deleted ? null :
                 <div className={s.container}>
                     <CInput className={s.calculator_input} instance={creditSum} />
-                    <CInput className={s.calculator_input} instance={creditPercent} />
+                    <CInput className={s.calculator_input} instance={rate} />
                     <CInput className={s.calculator_input} instance={yearCount} />
                     <div className={s.infofield}>
                         <p>{parseFloat(monthlyPayment).toFixed(2)}</p>
                     </div>
                     <div className={s.infofield}>
-                        <p>{(monthlyPayment * yearCount.value * 12).toFixed(2)}</p>
+                        <p>{monthlyPayment ? (monthlyPayment * yearCount.value * 12).toFixed(2) : '0.00'}</p>
                     </div>
                     <div className={s.infofield}>
                         {monthlyPayment ? <p>{(monthlyPayment * yearCount.value * 12 - creditSum.value).toFixed(2)}</p> : <p>0.00</p>}
