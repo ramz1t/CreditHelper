@@ -1,9 +1,7 @@
 .container {
-    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 40px;
-    margin-top: calc(var(--nav-height) + var(--nav-page-gap));
 }
 
 .logout_btn {

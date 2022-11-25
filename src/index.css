@@ -14,6 +14,7 @@
     --green-color: #ABDCAC;
     --input-bg-color: white;
     --error-color: red;
+    --site-gray: rgb(220, 220, 220);
   }
 }
 
@@ -24,6 +25,7 @@
     --green-color: #b2dab3;
     --input-bg-color: rgb(75, 75, 75);
     --error-color: rgb(255, 67, 67);
+    --site-gray: rgb(52, 52, 52);
   }
 }
 

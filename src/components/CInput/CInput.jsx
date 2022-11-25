@@ -15,7 +15,7 @@ const CInput = (props) => {
 
     return (
         <div className={props.className ? `${s.container} ${props.className}` : s.container}>
-            {props.title ? <label htmlFor={props.id}>{props.title}</label> : null}
+            {props.title ? <label htmlFor={props.id}>{props.title}:</label> : null}
             <input
                 id={props.id}
                 type={props.type}

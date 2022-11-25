@@ -16,3 +16,7 @@
     color: var(--error-color);
     font-weight: 600;
 }
+
+.container label {
+    padding-bottom: 10px;
+}

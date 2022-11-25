@@ -25,7 +25,6 @@
 
 .container[aria-expanded="true"] {
     height: fit-content;
-    padding-bottom: 20px;
 }
 
 .container__expandbtn {
@@ -60,7 +59,11 @@
         justify-content: center;
     }
 
-    #logout_btn {
+    .container__expandbtn>svg {
+        fill: black;
+    }
+
+    .navbar__button_last {
         position: static !important;
     }
 }
@@ -77,7 +80,7 @@
     text-decoration: underline;
 }
 
-#logout_btn {
+.navbar__button_last {
     cursor: pointer;
     border: none;
     background: none;
@@ -88,11 +91,15 @@
     align-items: center;
 }
 
-#logout_btn svg {
-    stroke: black
+.navbar__button_last>svg {
+    stroke: black;
 }
 
-#logout_btn>:nth-child(1) {
+.navbar__button_last>p {
+    color: black;
+}
+
+.navbar__button_last>:nth-child(1) {
     padding-right: 5px;
 }
 
@@ -101,4 +108,8 @@
     text-decoration: none;
     font-size: 25px;
     line-height: var(--nav-height);
+}
+
+.navbar__button_profile>svg {
+    scale: 1.5;
 }

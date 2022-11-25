@@ -1,13 +1,12 @@
 .form_wrapper {
-    min-height: 100vh;
+    min-height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
 }
 
 .register_form {
-    width: 300px;
+    width: 350px;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -37,8 +36,8 @@
 }
 
 .register_form button:hover {
-    color: black;
-    background-color: white;
+    color: var(--back-color);
+    background-color: var(--text-color);
 }
 
 .register_form button:disabled {

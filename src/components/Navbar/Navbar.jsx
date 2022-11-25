@@ -21,10 +21,10 @@ const Navbar = () => {
                 (
                     <>
                         <NavLink className={({ isActive }) => isActive ? s.navbar__button_active : s.navbar__button} to='/home/all'>Мои кредиты</NavLink>
-                        <NavLink id={s.logout_btn} className={s.navbar__button} to='/profile'><CgProfile /><p>{user.username}</p></NavLink>
+                        <NavLink className={`${s.navbar__button} ${s.navbar__button_last} ${s.navbar__button_profile}`} to='/profile'><CgProfile style={{ scale: 2 }} /><p>{user.username}</p></NavLink>
                     </>
                 ) : (
-                    <NavLink id={s.logout_btn} className={s.navbar__button} to="/login"><p>Войти</p><HiOutlineLogin /></NavLink>
+                    <NavLink className={`${s.navbar__button} ${s.navbar__button_last} ${s.navbar__button_login}`} to="/login"><p>Войти</p><HiOutlineLogin /></NavLink>
                 )}
         </nav>
     )

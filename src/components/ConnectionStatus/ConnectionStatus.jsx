@@ -6,7 +6,7 @@ import axios from "../../api/axios";
 const CHECK_TIMEOUT_SECS = 60
 
 const ConnectionStatus = () => {
-    const [online, setOnline] = useState(true);
+    const [online, setOnline] = useState(false);
 
     useEffect(() => {
         const interval = setInterval(() => {

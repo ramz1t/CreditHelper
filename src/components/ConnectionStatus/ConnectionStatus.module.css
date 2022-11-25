@@ -1,10 +1,8 @@
 .container {
-    position: absolute;
-    bottom: 0px;
     background-color: var(--back-color);
-    color: red;
-    width: 100vw;
-    border-bottom: 2px solid red;
+    color: var(--error-color);
+    width: 100%;
+    border-bottom: 2px solid var(--error-color);
     text-align: center;
     font-size: 15px;
     font-family: BoldTitle;

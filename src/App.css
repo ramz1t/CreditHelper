@@ -27,3 +27,12 @@ h5,
 h6 {
     font-family: BoldTitle;
 }
+
+.page_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: calc(var(--nav-height) + var(--nav-page-gap));
+    width: 100%;
+    min-height: 100vh;
+}

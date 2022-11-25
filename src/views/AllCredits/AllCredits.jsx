@@ -4,13 +4,9 @@ import s from './AllCredits.module.css'
 
 const AllCredits = () => {
     return (
-        <>
-            <Navbar />
-            <div className={s.container}>
-                <h1>Мои кредиты</h1>
-            </div>
-        </>
-
+        <div className={s.container}>
+            <h1>Мои кредиты</h1>
+        </div>
     )
 }
 
