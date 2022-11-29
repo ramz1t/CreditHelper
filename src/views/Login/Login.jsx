@@ -9,6 +9,7 @@ const Login = () => {
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
+    const [loading, setLoading] = useState(false)
     const loginRef = useRef()
 
     useEffect(() => {
@@ -21,7 +22,9 @@ const Login = () => {
 
     const authorize = async (e) => {
         e.preventDefault()
+        setLoading(true)
         setError(await loginUser(login, password))
+        setLoading(false)
     }
 
     return (
@@ -45,7 +48,7 @@ const Login = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <button disabled={login === '' || password === ''}>Войти</button>
+                <button disabled={login === '' || password === ''}>{loading ? 'Загрузка...' : 'Войти'}</button>
                 <p style={{ marginBottom: 0, marginTop: "10px" }}>Нет аккаунта?</p>
                 <NavLink to="/register">Регистрация</NavLink>
             </form>

@@ -6,6 +6,7 @@ import useInput from '../../../hooks/useInput'
 import { MdOutlineDeleteOutline as TrashIcon } from 'react-icons/md'
 import { AiOutlineFolderAdd as SaveIcon } from 'react-icons/ai'
 import AuthContext from '../../../context/AuthProvider'
+import useAxios from '../../../hooks/useAxios'
 
 const getCreditResult = (creditSum, rate, yearCount) => {
     const monthCount = yearCount * 12
@@ -21,6 +22,7 @@ const CreditForm = () => {
     const [monthlyPayment, setMonthlyPayment] = useState(0.00)
     const [deleted, setDeleted] = useState(false)
     const { user } = useContext(AuthContext)
+    const api = useAxios()
 
     useEffect(() => {
         if ([creditSum, rate, yearCount].every(item => item.allValid && item.value !== '')) {
@@ -29,6 +31,21 @@ const CreditForm = () => {
             setMonthlyPayment(0.00)
         }
     }, [creditSum, rate, yearCount])
+
+    const handleCreditSave = () => {
+        try {
+            api.post('/api/add_credit', {
+                'value': parseInt(creditSum.value),
+                'rate': parseFloat(rate.value),
+                'years_count': parseInt(yearCount.value),
+                'monthly_payment': monthlyPayment,
+                'total_payment': monthlyPayment * yearCount.value * 12,
+                'overpay': monthlyPayment * yearCount.value * 12 - creditSum.value
+            })
+        } catch (err) {
+            alert('error')
+        }
+    }
 
     return (
         <>
@@ -48,7 +65,7 @@ const CreditForm = () => {
                     </div>
                     <div className={s.buttons_wrapper}>
                         <button onClick={() => setDeleted(true)} className={s.button_red}><TrashIcon /></button>
-                        {user && <button className={s.button_green}><SaveIcon /></button>}
+                        {user && <button onClick={handleCreditSave} className={s.button_green}><SaveIcon /></button>}
                     </div>
                 </div>
             }
