@@ -1,12 +1,11 @@
-.error_wrapper h1 {
-    font-size: 90px;
-    margin-bottom: 30px;
-}
-
 .error_wrapper {
-    min-height: 100vh;
     display: flex;
+    gap: 20px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.error_wrapper img {
+    width: 80%;
 }

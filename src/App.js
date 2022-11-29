@@ -12,11 +12,11 @@ import ConnectionStatus from './components/ConnectionStatus/ConnectionStatus';
 import AllCredits from './views/AllCredits/AllCredits';
 import Landing from './views/Landing/Landing';
 import Navbar from './components/Navbar/Navbar';
-import NotAuth from './views/NotAuth/NotAuth';
 import { AuthProvider } from './context/AuthProvider';
 import Profile from './views/Profile/Profile';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import NotFoundTemplate from './components/NotFoundTemplate/NotFoundTemplate';
+import Footer from './components/Footer/Footer';
 
 function App() {
     return (
@@ -33,10 +33,12 @@ function App() {
                             <Route path='' element={<AllCredits />} />
                         </Route>
                         <Route path='profile' element={<Profile />} />
-                        <Route path='not_auth' element={<NotAuth />} />
                         <Route path='*' element={<NotFoundTemplate />} />
                     </Routes>
-                    <ConnectionStatus />
+                    <div className='page_bottom'>
+                        <ConnectionStatus />
+                        <Footer />
+                    </div>
                 </div>
             </AuthProvider>
         </div>

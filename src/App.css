@@ -36,3 +36,9 @@ h6 {
     width: 100%;
     min-height: 100vh;
 }
+
+.page_bottom {
+    padding-top: 20px;
+    width: 100vw;
+    translate: calc(-1 * (100vw - min(1200px, 100vw)) / 2 - 20px);
+}

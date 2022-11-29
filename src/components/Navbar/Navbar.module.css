@@ -4,7 +4,7 @@
     gap: 20px;
     align-items: center;
     background-color: var(--green-color);
-    position: absolute;
+    position: fixed;
     height: var(--nav-height);
     transition: height .2s;
     width: 100vw;

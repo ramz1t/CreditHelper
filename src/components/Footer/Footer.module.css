@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    justify-content: center;
+    background-color: var(--green-color);
+    padding: 20px;
+}
+
+.footer__inner {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    width: min(1200px, 100vw);
+    color: black;
+}
