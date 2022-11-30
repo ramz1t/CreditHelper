@@ -11,6 +11,7 @@ const AllCredits = () => {
     const [credits, setCredits] = useState([])
     const [loading, setLoading] = useState(true)
 
+    const handleDownload = () => api.get('api/download')
     useEffect(() => {
         api.get('api/my_credits').then(res => {
             setLoading(false)
@@ -23,6 +24,7 @@ const AllCredits = () => {
     }, [])
     return (
         <div className={s.container}>
+            <button onClick={handleDownload}>exp</button>
             <h1>{t('my_credits')}</h1>
             <p>{t('my_credits_desc')}</p>
             {loading ?
