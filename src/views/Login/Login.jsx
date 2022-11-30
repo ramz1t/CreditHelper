@@ -3,8 +3,10 @@ import { useEffect, useState, useRef, useContext } from "react";
 import s from './Login.module.css'
 import { NavLink } from "react-router-dom";
 import AuthContext from "../../context/AuthProvider";
+import { useTranslation } from "react-i18next";
 
 const Login = () => {
+    const { t } = useTranslation()
     const { loginUser } = useContext(AuthContext)
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
@@ -30,9 +32,9 @@ const Login = () => {
     return (
         <div className={s.form_wrapper}>
             <form className={s.login_form} onSubmit={authorize}>
-                <h1 className={s.login_form__title}>Войти</h1>
+                <h1 className={s.login_form__title}>{t('login')}</h1>
                 <p className={error ? s.login_form__error : s.login_form__error_disabled}>{error}</p>
-                <label htmlFor="login">Логин:</label>
+                <label htmlFor="login">{t('login_info')}</label>
                 <input
                     id="login"
                     type="text"
@@ -41,16 +43,16 @@ const Login = () => {
                     area-live="assertive"
                     onChange={(e) => setLogin(e.target.value)}
                 />
-                <label htmlFor="password">Пароль:</label>
+                <label htmlFor="password">{t('password')}</label>
                 <input
                     id="password"
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <button disabled={login === '' || password === ''}>{loading ? 'Загрузка...' : 'Войти'}</button>
-                <p style={{ marginBottom: 0, marginTop: "10px" }}>Нет аккаунта?</p>
-                <NavLink to="/register">Регистрация</NavLink>
+                <button disabled={login === '' || password === ''}>{loading ? t('loading') : t('login')}</button>
+                <p style={{ marginBottom: 0, marginTop: "10px" }}>{t('no_acc')}</p>
+                <NavLink to="/register">{t('register')}</NavLink>
             </form>
         </div>
     )

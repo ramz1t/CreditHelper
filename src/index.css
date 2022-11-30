@@ -32,14 +32,14 @@
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
   :root {
-    --landing-header-font-size: 70px
+    --landing-header-font-size: 35px
   }
 }
 
 /* iPads (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
   :root {
-    --landing-header-font-size: 120px
+    --landing-header-font-size: 90px
   }
 }
 
@@ -47,13 +47,6 @@
 @media only screen and (min-width : 1024px) {
   :root {
     --landing-header-font-size: 120px
-  }
-}
-
-/* Large screens ----------- */
-@media only screen and (min-width : 1921px) {
-  :root {
-    --landing-header-font-size: 175px
   }
 }
 

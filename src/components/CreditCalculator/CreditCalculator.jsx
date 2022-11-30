@@ -3,9 +3,11 @@ import { useState } from 'react'
 import s from './CreditCalculator.module.css'
 import CreditForm from './CreditForm/CreditForm'
 import { BsPlusCircle as PlusIcon } from 'react-icons/bs'
+import { useTranslation } from 'react-i18next'
 
 const CreditCalculator = () => {
     const [forms, setForms] = useState([<CreditForm />])
+    const { t } = useTranslation()
     const addForm = () => {
         setForms([...forms, <CreditForm />])
     }
@@ -13,12 +15,12 @@ const CreditCalculator = () => {
     return (
         <div className={s.container}>
             <div className={s.labels_wrapper}>
-                <p>Сумма кредита, руб:</p>
-                <p>Ставка, %:</p>
-                <p>Количество лет:</p>
-                <p>Ежемесячный платеж:</p>
-                <p>Общая сумма выплат:</p>
-                <p>Переплата по кредиту:</p>
+                <p>{t('sum')}</p>
+                <p>{t('rate')}</p>
+                <p>{t('years')}</p>
+                <p>{t('month_p')}</p>
+                <p>{t('total_p')}</p>
+                <p>{t('overpay')}</p>
             </div>
             <div className={s.forms_wrapper}>
                 {forms}
@@ -28,7 +30,7 @@ const CreditCalculator = () => {
                     <PlusIcon />
                 </button>
                 <button className={s.clear_button} onClick={() => setForms([])}>
-                    Очистить формы
+                    {t('clear')}
                 </button>
             </div>
 

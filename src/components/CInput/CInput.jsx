@@ -1,11 +1,13 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 import s from './CInput.module.css'
 
 const CInput = (props) => {
 
     const inputRef = useRef()
+    const { t } = useTranslation()
 
     useEffect(() => {
         if (props.autoRef) {
@@ -24,13 +26,13 @@ const CInput = (props) => {
                 onChange={props.instance.checkValue}
                 onBlur={props.instance.checkValue}
             />
-            {(props.instance.isDirty && props.instance.emailError) && <p>Ошибка в адресе почты</p>}
-            {(props.instance.isDirty && props.instance.pwdError) && <p>Пароль должен быть не менее 8 символов, содержать маленькие и большие буквы, минимум одну цифру и один спецсимвол</p>}
-            {(props.instance.isDirty && props.instance.isEmpty) && <p>Поле не может быть пустым</p>}
-            {(props.instance.isDirty && props.instance.matchError) && <p>Пароли не совпадают</p>}
+            {(props.instance.isDirty && props.instance.emailError) && <p>{t('email_err')}</p>}
+            {(props.instance.isDirty && props.instance.pwdError) && <p>{t('pass_err')}</p>}
+            {(props.instance.isDirty && props.instance.isEmpty) && <p>{t('empty_err')}</p>}
+            {(props.instance.isDirty && props.instance.matchError) && <p>{t('pass_miss')}</p>}
             {(props.instance.isDirty && props.instance.minLengthError) && <p>Мало символов</p>}
-            {(props.instance.isDirty && props.instance.intError) && <p>Введите целое число</p>}
-            {(props.instance.isDirty && props.instance.floatError) && <p>Введите целое или дробное число</p>}
+            {(props.instance.isDirty && props.instance.intError) && <p>{t('int_err')}</p>}
+            {(props.instance.isDirty && props.instance.floatError) && <p>{t('float_err')}</p>}
         </div>
     )
 }

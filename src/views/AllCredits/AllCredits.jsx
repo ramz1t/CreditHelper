@@ -1,11 +1,13 @@
 import React from 'react'
-import Navbar from '../../components/Navbar/Navbar'
+import { useTranslation } from 'react-i18next'
 import s from './AllCredits.module.css'
 
 const AllCredits = () => {
+    const { t } = useTranslation()
+
     return (
         <div className={s.container}>
-            <h1>Мои кредиты</h1>
+            <h1>{t('my_credits')}</h1>
         </div>
     )
 }

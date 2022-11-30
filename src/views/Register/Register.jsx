@@ -6,8 +6,10 @@ import CInput from "../../components/CInput/CInput";
 import useInput from "../../hooks/useInput";
 import { useContext } from "react";
 import AuthContext from "../../context/AuthProvider";
+import { useTranslation } from "react-i18next";
 
 const Register = () => {
+    const { t } = useTranslation()
     const [error, setError] = useState('')
     const [success, setSuccess] = useState(false)
     const name = useInput('', { isEmpty: true })
@@ -30,18 +32,18 @@ const Register = () => {
     return (
         <div className={s.form_wrapper}>
             <form className={s.register_form} onSubmit={register}>
-                <h1>Регистрация</h1>
+                <h1>{t('register')}</h1>
                 {error ? <p data-banner-type='error'>{error}</p> : ''}
-                {success ? <p data-banner-type='success'>Аккаунт создан</p> : ''}
-                <CInput className={s.register_form__input_field} title='Имя' autoRef={true} type='text' instance={name} />
-                <CInput className={s.register_form__input_field} title='Фамилия' type='text' instance={surname} />
-                <CInput className={s.register_form__input_field} title='Почта' type='text' instance={email} />
-                <CInput className={s.register_form__input_field} title='Имя пользователя' type='text' instance={login} />
-                <CInput className={s.register_form__input_field} title='Пароль' type='password' instance={pwd} />
-                <CInput className={s.register_form__input_field} title='Повторите пароль' type='password' instance={repeatPwd} />
-                <button disabled={!formValid || repeatPwd.value === ''}>Зарегестрироваться</button>
-                <p style={{ marginBottom: 0, marginTop: "10px" }}>Уже есть аккаунт?</p>
-                <NavLink to="/login">Войти</NavLink>
+                {success ? <p data-banner-type='success'>{t('acc_created')}</p> : ''}
+                <CInput className={s.register_form__input_field} title={t('name')} autoRef={true} type='text' instance={name} />
+                <CInput className={s.register_form__input_field} title={t('surname')} type='text' instance={surname} />
+                <CInput className={s.register_form__input_field} title={t('email')} type='text' instance={email} />
+                <CInput className={s.register_form__input_field} title={t('login')} type='text' instance={login} />
+                <CInput className={s.register_form__input_field} title={t('password')} type='password' instance={pwd} />
+                <CInput className={s.register_form__input_field} title={t('repeat_password')} type='password' instance={repeatPwd} />
+                <button disabled={!formValid || repeatPwd.value === ''}>{t('submit_reg')}</button>
+                <p style={{ marginBottom: 0, marginTop: "10px" }}>{t('has_acc')}</p>
+                <NavLink to="/login">{t('login')}</NavLink>
             </form>
         </div >
     )
