@@ -2,9 +2,11 @@ import React from "react";
 import { useState, useEffect } from 'react'
 import s from './ConnectionStatus.module.css'
 import axios from "../../api/axios";
+import { useTranslation } from "react-i18next";
 
 const ConnectionStatus = () => {
     const [online, setOnline] = useState(true);
+    const { t } = useTranslation()
 
     useEffect(() => {
         axios.get('api/health').then(res => {
@@ -16,7 +18,7 @@ const ConnectionStatus = () => {
 
     return (
         <>
-            {!online ? <p className={s.container}>Удаленный сервер не отвечает, часть функций приложения может быть недоступна</p> : null}
+            {!online ? <p className={s.container}>{t('no_connection')}</p> : null}
         </>
     )
 };
