@@ -86,17 +86,20 @@
     background: none;
     position: absolute;
     right: 20px;
+    gap: 5px;
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
 .navbar__button_last>svg {
-    stroke: black;
+    fill: black;
+    translate: 0 -1px;
 }
 
 .navbar__button_last>p {
     color: black;
+    font-family: BoldTitle;
 }
 
 .navbar__button_last>:nth-child(1) {

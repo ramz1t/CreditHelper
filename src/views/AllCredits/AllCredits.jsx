@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import CreditsTable from '../../components/CreditsTable/CreditsTable'
 import useAxios from '../../hooks/useAxios'
 import s from './AllCredits.module.css'
+import { AiOutlineCloudDownload } from 'react-icons/ai'
 
 const AllCredits = () => {
     const { t } = useTranslation()
@@ -12,6 +13,7 @@ const AllCredits = () => {
     const [loading, setLoading] = useState(true)
 
     const handleDownload = () => api.get('api/download')
+
     useEffect(() => {
         api.get('api/my_credits').then(res => {
             setLoading(false)
@@ -22,9 +24,9 @@ const AllCredits = () => {
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+
     return (
         <div className={s.container}>
-            <button onClick={handleDownload}>exp</button>
             <h1>{t('my_credits')}</h1>
             <p>{t('my_credits_desc')}</p>
             {loading ?
@@ -35,6 +37,7 @@ const AllCredits = () => {
                     :
                     <p data-type="error">{t('fetch_fail')}</p>
             }
+            <button className={s.export} onClick={handleDownload}><AiOutlineCloudDownload />{t('export')}</button>
         </div>
     )
 }

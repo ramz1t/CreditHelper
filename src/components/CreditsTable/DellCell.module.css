@@ -1,0 +1,14 @@
+.container {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.container svg {
+    fill: var(--error-color);
+    scale: 1.1;
+}

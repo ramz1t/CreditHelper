@@ -13,12 +13,12 @@ const Footer = () => {
     return (
         <div className={s.container}>
             <div className={s.footer__inner}>
-                {`${t('author')}, 2022`}
+                <p>{`${t('author')}, 2022`}</p>
                 <a href='https://github.com' target='blank'>{t('frontend')}</a>
                 <a href="https://github.com" target='blank'>{t('backend')}</a>
                 <select onChange={changeLang}>
                     <option>{t('choose_lang')}</option>
-                    <option value="ru">🇷🇺 Russian</option>
+                    <option value="ru">🇷🇺 Русский</option>
                     <option value="en">🇺🇸 English</option>
                 </select>
             </div>

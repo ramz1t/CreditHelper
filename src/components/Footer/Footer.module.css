@@ -10,5 +10,26 @@
     gap: 10px;
     flex-direction: column;
     width: min(1200px, 100vw);
+}
+
+.footer__inner>* {
+    width: fit-content;
     color: black;
+}
+
+.footer__inner p {
+    font-weight: 600;
+}
+
+.footer__inner select {
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 5px 7px;
+    font-family: BoldTitle;
+    background: none;
+}
+
+.footer__inner select option {
+    font-family: BoldTitle;
+    color: black
 }

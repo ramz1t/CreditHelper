@@ -13,27 +13,26 @@
     gap: 15px;
 }
 
-.labels_wrapper {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr) 70px;
-    row-gap: 10px;
-    column-gap: 25px;
-}
-
-.labels_wrapper p {
-    font-weight: 600;
-}
-
-@media only screen and (max-device-width : 768px) {
-    .labels_wrapper {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
 .table_wrapper {
     overflow-x: scroll;
 }
 
 .table_wrapper table {
     width: 100%;
+}
+
+.export {
+    border: 2px solid var(--text-color);
+    font-family: BoldTitle;
+    background: none;
+    border-radius: 15px;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    width: fit-content;
+}
+
+.export svg {
+    scale: 1.3;
 }

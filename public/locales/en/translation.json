@@ -14,7 +14,7 @@
     "overpay": "Overpay:",
     "login": "Login",
     "clear": "Clear forms",
-    "choose_lang": "Choose language",
+    "choose_lang": "Language",
     "name": "Name",
     "surname": "Surname",
     "email": "Email",
@@ -40,5 +40,6 @@
     "fetch_fail": "Failed to fetch credits from database, please try again later",
     "no_connection": "Backend server is not reponding, some features might be unavailable",
     "wrong_url": "Oops, looks like you lost the way",
-    "back_home": "Go to home page"
+    "back_home": "Go to home page",
+    "export": "Export"
 }

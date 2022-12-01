@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import s from './Navbar.module.css'
-import { CgProfile } from 'react-icons/cg'
+import { BsPersonCircle } from 'react-icons/bs'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { HiOutlineLogin } from 'react-icons/hi'
 import AuthContext from '../../context/AuthProvider'
@@ -23,7 +23,7 @@ const Navbar = () => {
                 (
                     <>
                         <NavLink className={({ isActive }) => isActive ? s.navbar__button_active : s.navbar__button} to='/home/all'>{t('all_credits')}</NavLink>
-                        <NavLink className={`${s.navbar__button} ${s.navbar__button_last} ${s.navbar__button_profile}`} to='/profile'><CgProfile /><p>{user.username}</p></NavLink>
+                        <NavLink className={`${s.navbar__button} ${s.navbar__button_last} ${s.navbar__button_profile}`} to='/profile'><BsPersonCircle /><p>{user.username}</p></NavLink>
                     </>
                 ) : (
                     <NavLink className={`${s.navbar__button} ${s.navbar__button_last} ${s.navbar__button_login}`} to="/login"><p>{t('login')}</p><HiOutlineLogin /></NavLink>

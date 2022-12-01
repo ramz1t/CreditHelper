@@ -1,3 +1,7 @@
 th {
     text-align: start;
 }
+
+td:not(:last-child()) {
+    min-width: 100px;
+}
