@@ -41,5 +41,6 @@
     "no_connection": "Backend server is not reponding, some features might be unavailable",
     "wrong_url": "Oops, looks like you lost the way",
     "back_home": "Go to home page",
-    "export": "Export"
+    "export": "Export",
+    "filter": "You can sort table by clicking column headers"
 }

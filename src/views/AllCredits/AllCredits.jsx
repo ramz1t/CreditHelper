@@ -28,7 +28,10 @@ const AllCredits = () => {
     return (
         <div className={s.container}>
             <h1>{t('my_credits')}</h1>
-            <p>{t('my_credits_desc')}</p>
+            <div>
+                <p>{t('my_credits_desc')}</p>
+                <p>{t('filter')}</p>
+            </div>
             {loading ?
                 t('loading')
                 :

@@ -1,5 +1,6 @@
 th {
     text-align: start;
+    min-height: 25px;
 }
 
 td:not(:last-child()) {
