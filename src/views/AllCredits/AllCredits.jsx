@@ -36,7 +36,7 @@ const AllCredits = () => {
                 t('loading')
                 :
                 credits !== 'error' ?
-                    <div className={s.table_wrapper}><CreditsTable data={credits} /></div>
+                    <div className={s.table_wrapper}><CreditsTable setData={setCredits} data={credits} /></div>
                     :
                     <p data-type="error">{t('fetch_fail')}</p>
             }

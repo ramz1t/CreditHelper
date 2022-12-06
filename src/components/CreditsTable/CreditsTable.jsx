@@ -6,7 +6,7 @@ import s from './CreditsTable.module.css'
 import DelCell from './DelCell';
 import { VscTriangleDown as Down, VscTriangleUp as Up } from 'react-icons/vsc'
 
-const CreditsTable = ({ data }) => {
+const CreditsTable = ({ data, setData }) => {
     const { t } = useTranslation()
     const columns = useMemo(
         () => [
@@ -59,7 +59,7 @@ const CreditsTable = ({ data }) => {
                 Header: '',
                 accessor: 'id',
                 Cell: ({ cell: { value } }) => {
-                    return <DelCell id={value} />
+                    return <DelCell state={data} setState={setData} id={value} />
                 },
                 disableSortBy: true
             }

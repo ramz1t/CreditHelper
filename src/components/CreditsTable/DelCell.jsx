@@ -3,12 +3,14 @@ import useAxios from '../../hooks/useAxios'
 import s from './DellCell.module.css'
 import { MdOutlineDeleteOutline as TrashIcon } from 'react-icons/md'
 
-const DelCell = ({ id }) => {
+const DelCell = ({ state, setState, id }) => {
+    console.log(state)
     const api = useAxios()
 
     const handleDelete = () => {
         api.post('api/delete_credit', { id }).then(res => {
-            console.log(res)
+            state = state.filter(el => el.id !== id)
+            setState(state)
         }).catch(err => {
             console.log(err)
         })
