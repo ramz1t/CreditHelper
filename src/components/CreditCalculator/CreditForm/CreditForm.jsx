@@ -57,7 +57,9 @@ const CreditForm = () => {
             'overpay': monthlyPayment * yearCount.value * 12 - creditSum.value
         }).then(res => {
             setSaved(true)
+            setLoading(false)
         }).catch(err => {
+            setLoading(false)
             alert(t('save_err'))
         })
     }
@@ -80,7 +82,10 @@ const CreditForm = () => {
                     </div>
                     <div className={s.buttons_wrapper}>
                         <button onClick={() => setDeleted(true)} className={s.button_red}><TrashIcon /></button>
-                        {user && <button onClick={handleCreditSave} className={s.button_green}>{saved ? <VscFolderActive /> : <VscNewFolder />}</button>}
+                        {user &&
+                            <button onClick={handleCreditSave} className={s.button_green}>
+                                {loading ? <div className={s.lds_dual_ring}></div> : saved ? <VscFolderActive /> : <VscNewFolder />}
+                            </button>}
                     </div>
                 </div>
             }

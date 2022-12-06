@@ -23,7 +23,7 @@ const Profile = () => {
                     <p>{user.surname}</p>
                 </div>
                 <div className={s.profile_data__row}>
-                    <h3>{t('login')}</h3>
+                    <h3>{t('login_info')}</h3>
                     <p>{user.username}</p>
                 </div>
                 <div className={s.profile_data__row}>
@@ -31,8 +31,7 @@ const Profile = () => {
                     <p>{user.email}</p>
                 </div>
             </div>
-
-            <button className={s.logout_btn} onClick={logoutUser}><FiLogOut />{t('logout')}</button>
+            <button className={s.logout_btn} onClick={logoutUser}>{t('logout')}<FiLogOut /></button>
         </div>
     )
 }

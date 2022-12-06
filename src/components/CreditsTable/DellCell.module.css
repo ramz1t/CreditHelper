@@ -12,3 +12,31 @@
     fill: var(--error-color);
     scale: 1.1;
 }
+
+.lds_dual_ring {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+}
+
+.lds_dual_ring:after {
+    content: " ";
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin: 0px;
+    border-radius: 50%;
+    border: 2px solid var(--error-color);
+    border-color: var(--error-color) transparent var(--error-color) transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -5,15 +5,27 @@
 }
 
 .logout_btn {
+    font-family: BoldTitle;
+    background: none;
     width: fit-content;
     border-radius: 15px;
     padding: 10px;
     color: var(--error-color);
     border: 2px solid var(--error-color);
     display: flex;
+    gap: 8px;
     flex-direction: row;
     align-items: center;
     cursor: pointer;
+}
+
+.logout_btn:hover {
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.logout_btn svg {
+    stroke: var(--error-color);
+    scale: 1.1;
 }
 
 .profile_data {

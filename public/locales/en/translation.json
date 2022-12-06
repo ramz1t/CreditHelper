@@ -18,7 +18,7 @@
     "name": "Name",
     "surname": "Surname",
     "email": "Email",
-    "login_info": "Login",
+    "login_info": "Username",
     "logout": "Logout",
     "profile": "Profile",
     "my_credits": "My credits",
@@ -44,5 +44,6 @@
     "export": "Export",
     "filter": "Sort the table, by clicking at column headers",
     "not_enough_data": "Fill all fields",
-    "save_err": "Error occured while saving, please try again later"
+    "save_err": "Error occured while saving, please try again later",
+    "main_body": ""
 }
