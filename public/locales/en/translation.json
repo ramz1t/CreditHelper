@@ -4,7 +4,7 @@
     "author": "Smolkina Sofia Maksimovna",
     "frontend": "Frontend",
     "backend": "Backend",
-    "calculator_heading": "Assistant in choosing the optimal lending conditions",
+    "calculator_heading": "Assistant in choosing optimal lending conditions",
     "calculator_description": "Compare the conditions for granting loans in different banks and choose the best conditions based on your wishes and possibilities",
     "sum": "Credit sum, rub:",
     "rate": "Credit rate, %:",
@@ -42,5 +42,7 @@
     "wrong_url": "Oops, looks like you lost the way",
     "back_home": "Go to home page",
     "export": "Export",
-    "filter": "You can sort table by clicking column headers"
+    "filter": "Sort the table, by clicking at column headers",
+    "not_enough_data": "Fill all fields",
+    "save_err": "Error occured while saving, please try again later"
 }

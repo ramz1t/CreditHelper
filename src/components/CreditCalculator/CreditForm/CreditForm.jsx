@@ -4,9 +4,10 @@ import s from './CreditForm.module.css'
 import CInput from './../../CInput/CInput'
 import useInput from '../../../hooks/useInput'
 import { MdOutlineDeleteOutline as TrashIcon } from 'react-icons/md'
-import { AiOutlineFolderAdd as SaveIcon } from 'react-icons/ai'
+import { VscFolderActive, VscNewFolder } from 'react-icons/vsc'
 import AuthContext from '../../../context/AuthProvider'
 import useAxios from '../../../hooks/useAxios'
+import { useTranslation } from 'react-i18next'
 
 const getCreditResult = (creditSum, rate, yearCount) => {
     const monthCount = yearCount * 12
@@ -21,39 +22,53 @@ const CreditForm = () => {
     const yearCount = useInput('', { isInt: true })
     const [monthlyPayment, setMonthlyPayment] = useState(0.00)
     const [deleted, setDeleted] = useState(false)
+    const [filled, setFilled] = useState(false)
+    const [saved, setSaved] = useState(false)
+    const [loading, setLoading] = useState(false)
     const { user } = useContext(AuthContext)
     const api = useAxios()
+    const { t } = useTranslation()
 
     useEffect(() => {
         if ([creditSum, rate, yearCount].every(item => item.allValid && item.value !== '')) {
             setMonthlyPayment(getCreditResult(creditSum.value, rate.value, yearCount.value))
+            setFilled(true)
         } else {
             setMonthlyPayment(0.00)
+            setFilled(false)
         }
     }, [creditSum, rate, yearCount])
 
     const handleCreditSave = () => {
-        try {
-            api.post('/api/add_credit', {
-                'value': parseInt(creditSum.value),
-                'rate': parseFloat(rate.value),
-                'years_count': parseInt(yearCount.value),
-                'monthly_payment': monthlyPayment,
-                'total_payment': monthlyPayment * yearCount.value * 12,
-                'overpay': monthlyPayment * yearCount.value * 12 - creditSum.value
-            })
-        } catch (err) {
-            alert('error')
+        if (!filled) {
+            alert(t('not_enough_data'))
+            throw Error('Not enough data provided to save credit to DB')
         }
+        if (loading) {
+            throw Error('Already saving, dont spam')
+        }
+        setLoading(true)
+        api.post('/api/add_credit', {
+            'value': parseInt(creditSum.value),
+            'rate': parseFloat(rate.value),
+            'years_count': parseInt(yearCount.value),
+            'monthly_payment': monthlyPayment,
+            'total_payment': monthlyPayment * yearCount.value * 12,
+            'overpay': monthlyPayment * yearCount.value * 12 - creditSum.value
+        }).then(res => {
+            setSaved(true)
+        }).catch(err => {
+            alert(t('save_err'))
+        })
     }
 
     return (
         <>
             {deleted ? null :
                 <div className={s.container}>
-                    <CInput className={s.calculator_input} instance={creditSum} />
-                    <CInput className={s.calculator_input} instance={rate} />
-                    <CInput className={s.calculator_input} instance={yearCount} />
+                    <CInput disabled={saved} className={s.calculator_input} instance={creditSum} />
+                    <CInput disabled={saved} className={s.calculator_input} instance={rate} />
+                    <CInput disabled={saved} className={s.calculator_input} instance={yearCount} />
                     <div className={s.infofield}>
                         <p>{parseFloat(monthlyPayment).toFixed(2)}</p>
                     </div>
@@ -65,7 +80,7 @@ const CreditForm = () => {
                     </div>
                     <div className={s.buttons_wrapper}>
                         <button onClick={() => setDeleted(true)} className={s.button_red}><TrashIcon /></button>
-                        {user && <button onClick={handleCreditSave} className={s.button_green}><SaveIcon /></button>}
+                        {user && <button onClick={handleCreditSave} className={s.button_green}>{saved ? <VscFolderActive /> : <VscNewFolder />}</button>}
                     </div>
                 </div>
             }

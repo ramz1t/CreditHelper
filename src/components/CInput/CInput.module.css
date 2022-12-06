@@ -11,6 +11,11 @@
     width: 100%;
 }
 
+.container input:disabled {
+    outline: none;
+    cursor: not-allowed;
+}
+
 .container p {
     padding-top: 15px;
     color: var(--error-color);

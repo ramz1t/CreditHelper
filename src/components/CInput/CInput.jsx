@@ -25,6 +25,7 @@ const CInput = (props) => {
                 value={props.instance.value}
                 onChange={props.instance.checkValue}
                 onBlur={props.instance.checkValue}
+                disabled={props.disabled}
             />
             {(props.instance.isDirty && props.instance.emailError) && <p>{t('email_err')}</p>}
             {(props.instance.isDirty && props.instance.pwdError) && <p>{t('pass_err')}</p>}
