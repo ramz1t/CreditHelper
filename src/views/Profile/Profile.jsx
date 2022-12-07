@@ -14,22 +14,14 @@ const Profile = () => {
         <div className={s.container}>
             <h1>{t('profile')}</h1>
             <div className={s.profile_data}>
-                <div className={s.profile_data__row}>
-                    <h3>{t('name')}</h3>
-                    <h3>{user.name}</h3>
-                </div>
-                <div className={s.profile_data__row}>
-                    <h3>{t('surname')}</h3>
-                    <h3>{user.surname}</h3>
-                </div>
-                <div className={s.profile_data__row}>
-                    <h3>{t('login_info')}</h3>
-                    <h3>{user.username}</h3>
-                </div>
-                <div className={s.profile_data__row}>
-                    <h3>{t('email')}</h3>
-                    <h3>{user.email}</h3>
-                </div>
+                <h3>{t('name')}</h3>
+                <p>{user.name}</p>
+                <h3>{t('surname')}</h3>
+                <p>{user.surname}</p>
+                <h3>{t('login_info')}</h3>
+                <p>{user.username}</p>
+                <h3>{t('email')}</h3>
+                <p>{user.email}</p>
             </div>
             <button className={s.logout_btn} onClick={logoutUser}>{t('logout')}<FiLogOut /></button>
         </div>

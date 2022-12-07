@@ -29,19 +29,11 @@
 }
 
 .profile_data {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 15px;
     border: 2px solid var(--text-color);
-    padding: 15px;
+    padding: 25px;
     border-radius: 15px;
     width: fit-content;
-}
-
-.profile_data__row {
-    display: flex;
-    flex: row;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 10px
 }

@@ -40,9 +40,10 @@ const AllCredits = () => {
                     :
                     <p data-type="error">{t('fetch_fail')}</p>
             }
-            <button className={s.export} onClick={handleDownload}><AiOutlineCloudDownload />{t('export')}</button>
+
+            {/* <button className={s.export} onClick={handleDownload}><AiOutlineCloudDownload />{t('export')}</button> */}
         </div>
     )
 }
-
+// #TODO: excel export
 export default AllCredits
