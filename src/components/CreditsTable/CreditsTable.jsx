@@ -2,7 +2,7 @@ import React from 'react'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next';
 import { useTable, useSortBy } from "react-table";
-import s from './CreditsTable.module.css'
+import './CreditsTable.module.css'
 import DelCell from './DelCell';
 import { VscTriangleDown as Down, VscTriangleUp as Up } from 'react-icons/vsc'
 

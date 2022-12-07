@@ -32,11 +32,16 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+    border: 2px solid var(--text-color);
+    padding: 15px;
+    border-radius: 15px;
+    width: fit-content;
 }
 
 .profile_data__row {
     display: flex;
     flex: row;
     align-items: baseline;
+    justify-content: space-between;
     gap: 10px
 }
