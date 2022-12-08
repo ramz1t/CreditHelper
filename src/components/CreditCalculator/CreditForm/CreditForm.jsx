@@ -3,7 +3,7 @@ import { useState, useEffect, useContext } from 'react'
 import s from './CreditForm.module.css'
 import CInput from './../../CInput/CInput'
 import useInput from '../../../hooks/useInput'
-import { MdOutlineDeleteOutline as TrashIcon } from 'react-icons/md'
+import { FiMinus } from 'react-icons/fi'
 import { VscFolderActive, VscNewFolder } from 'react-icons/vsc'
 import AuthContext from '../../../context/AuthProvider'
 import useAxios from '../../../hooks/useAxios'
@@ -81,7 +81,7 @@ const CreditForm = () => {
                         {monthlyPayment ? <p>{(monthlyPayment * yearCount.value * 12 - creditSum.value).toFixed(2)}</p> : <p>0.00</p>}
                     </div>
                     <div className={s.buttons_wrapper}>
-                        <button onClick={() => setDeleted(true)} className={s.button_red}><TrashIcon /></button>
+                        <button onClick={() => setDeleted(true)} className={s.button_red}><FiMinus /></button>
                         {user &&
                             <button onClick={handleCreditSave} className={s.button_green}>
                                 {loading ? <div className={s.lds_dual_ring}></div> : saved ? <VscFolderActive /> : <VscNewFolder />}
