@@ -23,6 +23,7 @@
 .login_form button,
 .login_form__error {
     border-radius: 10px;
+    -moz-outline-radius: 10px;
 }
 
 .login_form input {

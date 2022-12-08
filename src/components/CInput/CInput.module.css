@@ -9,6 +9,7 @@
     border: none;
     border-radius: 10px;
     width: 100%;
+    -moz-outline-radius: 10px;
 }
 
 .container input:disabled {
