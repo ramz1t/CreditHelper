@@ -1,6 +1,5 @@
 import React from 'react'
 import { useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
 import AuthContext from '../../context/AuthProvider'
 import s from './Profile.module.css'
 import { FiLogOut } from 'react-icons/fi'

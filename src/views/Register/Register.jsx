@@ -38,7 +38,7 @@ const Register = () => {
                 <CInput className={s.register_form__input_field} title={t('name')} autoRef={true} type='text' instance={name} />
                 <CInput className={s.register_form__input_field} title={t('surname')} type='text' instance={surname} />
                 <CInput className={s.register_form__input_field} title={t('email')} type='text' instance={email} />
-                <CInput className={s.register_form__input_field} title={t('login')} type='text' instance={login} />
+                <CInput className={s.register_form__input_field} title={t('login_info')} type='text' instance={login} />
                 <CInput className={s.register_form__input_field} title={t('password')} type='password' instance={pwd} />
                 <CInput className={s.register_form__input_field} title={t('repeat_password')} type='password' instance={repeatPwd} />
                 <button disabled={!formValid || repeatPwd.value === ''}>{t('submit_reg')}</button>

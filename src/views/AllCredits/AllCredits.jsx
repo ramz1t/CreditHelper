@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import CreditsTable from '../../components/CreditsTable/CreditsTable'
 import useAxios from '../../hooks/useAxios'
 import s from './AllCredits.module.css'
-import { AiOutlineCloudDownload } from 'react-icons/ai'
+// import { AiOutlineCloudDownload } from 'react-icons/ai'
 
 const AllCredits = () => {
     const { t } = useTranslation()
@@ -12,7 +12,7 @@ const AllCredits = () => {
     const [credits, setCredits] = useState([])
     const [loading, setLoading] = useState(true)
 
-    const handleDownload = () => api.get('api/download')
+    // const handleDownload = () => api.get('api/download')
 
     useEffect(() => {
         api.get('api/my_credits').then(res => {

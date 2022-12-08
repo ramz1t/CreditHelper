@@ -5,8 +5,6 @@ import {
     Routes,
 } from "react-router-dom";
 import Register from './views/Register/Register';
-import DarkModeSwitch from './components/DarkModeSwitch/DarkModeSwitch';
-// import NotFoundTemplate from './components/NotFoundTemplate/NotFoundTemplate';
 import Home from './views/Home/Home';
 import ConnectionStatus from './components/ConnectionStatus/ConnectionStatus';
 import AllCredits from './views/AllCredits/AllCredits';

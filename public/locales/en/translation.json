@@ -45,5 +45,5 @@
     "filter": "Sort the table by clicking at any column header",
     "not_enough_data": "Fill all fields",
     "save_err": "Error occured while saving, please try again later",
-    "main_body": ""
+    "main_body": "This app is designed to help people deal with their loans. It can be used without authorization, but for full functionality you need a login"
 }
