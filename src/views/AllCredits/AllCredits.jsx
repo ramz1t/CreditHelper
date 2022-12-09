@@ -19,7 +19,7 @@ const AllCredits = () => {
     const handleDownload = () => {
         api.get('api/download', {
             responseType: 'blob',
-            params: { locale: localStorage.getItem('lang') }
+            params: { locale: localStorage.getItem('lang') || 'ru' }
         }).then(res => {
             fileDownload(res.data, `${user.username}_credits.xlsx`)
         })
