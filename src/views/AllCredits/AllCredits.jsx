@@ -4,15 +4,26 @@ import { useTranslation } from 'react-i18next'
 import CreditsTable from '../../components/CreditsTable/CreditsTable'
 import useAxios from '../../hooks/useAxios'
 import s from './AllCredits.module.css'
-// import { AiOutlineCloudDownload } from 'react-icons/ai'
+import { AiOutlineCloudDownload } from 'react-icons/ai'
+import fileDownload from 'js-file-download'
+import { useContext } from 'react'
+import AuthContext from '../../context/AuthProvider'
 
 const AllCredits = () => {
     const { t } = useTranslation()
     const api = useAxios()
     const [credits, setCredits] = useState([])
     const [loading, setLoading] = useState(true)
+    const { user } = useContext(AuthContext)
 
-    // const handleDownload = () => api.get('api/download')
+    const handleDownload = () => {
+        api.get('api/download', {
+            responseType: 'blob',
+            params: { locale: localStorage.getItem('lang') }
+        }).then(res => {
+            fileDownload(res.data, `${user.username}_credits.xlsx`)
+        })
+    }
 
     useEffect(() => {
         api.get('api/my_credits').then(res => {
@@ -41,7 +52,7 @@ const AllCredits = () => {
                     <p data-type="error">{t('fetch_fail')}</p>
             }
 
-            {/* <button className={s.export} onClick={handleDownload}><AiOutlineCloudDownload />{t('export')}</button> */}
+            <button className={s.export} onClick={handleDownload}><AiOutlineCloudDownload />{t('export')}</button>
         </div>
     )
 }
