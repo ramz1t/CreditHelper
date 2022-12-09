@@ -14,8 +14,8 @@ const Footer = () => {
         <div className={s.container}>
             <div className={s.footer__inner}>
                 <p>{`${t('author')}, 2022`}</p>
-                <a href='https://github.com' target='blank'>{t('frontend')}</a>
-                <a href="https://github.com" target='blank'>{t('backend')}</a>
+                <a href='https://github.com/smolkinasm/credithelper_front' target='blank'>{t('frontend')}</a>
+                <a href="https://github.com/smolkinasm/credithelper_back" target='blank'>{t('backend')}</a>
                 <select onChange={changeLang}>
                     <option>{t('choose_lang')}</option>
                     <option value="ru">🇷🇺 Русский</option>
