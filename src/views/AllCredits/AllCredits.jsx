@@ -14,14 +14,20 @@ const AllCredits = () => {
     const api = useAxios()
     const [credits, setCredits] = useState([])
     const [loading, setLoading] = useState(true)
+    const [exporting, setExporting] = useState(false)
     const { user } = useContext(AuthContext)
 
     const handleDownload = () => {
+        setExporting(true)
         api.get('api/download', {
             responseType: 'blob',
             params: { locale: localStorage.getItem('lang') || 'ru' }
         }).then(res => {
+            setExporting(false)
             fileDownload(res.data, `${user.username}_credits.xlsx`)
+        }).catch(err => {
+            setExporting(false)
+            alert('failed to download')
         })
     }
 
@@ -52,7 +58,7 @@ const AllCredits = () => {
                     <p data-type="error">{t('fetch_fail')}</p>
             }
 
-            <button className={s.export} onClick={handleDownload}><AiOutlineCloudDownload />{t('export')}</button>
+            <button className={s.export} onClick={handleDownload}><AiOutlineCloudDownload />{exporting ? t('loading') : t('export')}</button>
         </div>
     )
 }

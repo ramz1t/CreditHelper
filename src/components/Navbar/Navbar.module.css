@@ -24,7 +24,7 @@
 }
 
 .container[aria-expanded="true"] {
-    height: fit-content;
+    height: unset;
 }
 
 .container__expandbtn {

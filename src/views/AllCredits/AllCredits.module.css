@@ -24,6 +24,7 @@
 .export {
     border: 2px solid var(--text-color);
     font-family: BoldTitle;
+    cursor: pointer;
     background: none;
     border-radius: 15px;
     padding: 10px 15px;
@@ -31,6 +32,10 @@
     align-items: center;
     gap: 7px;
     width: fit-content;
+}
+
+.export:hover {
+    background: rgba(94, 94, 94, 0.117);
 }
 
 .export svg {
