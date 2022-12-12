@@ -33,7 +33,8 @@
 }
 
 .login_form input:focus {
-    border: 3px solid var(--text-color)
+    border: 3px solid var(--text-color);
+    outline: none;
 }
 
 .login_form button {

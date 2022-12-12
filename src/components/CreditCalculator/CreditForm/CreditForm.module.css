@@ -19,7 +19,8 @@
 }
 
 .calculator_input input:focus {
-    border: 3px solid var(--green-color)
+    border: 3px solid var(--green-color);
+    outline: none;
 }
 
 .calculator_input label {

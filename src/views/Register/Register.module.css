@@ -81,5 +81,6 @@
 }
 
 .register_form__input_field input:focus {
-    border: 3px solid var(--text-color)
+    border: 3px solid var(--text-color);
+    outline: none;
 }
