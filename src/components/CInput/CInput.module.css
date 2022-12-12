@@ -8,15 +8,11 @@
     text-align: center;
     border: none;
     border-radius: 10px;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
     width: 100%;
-    -moz-outline-radius: 10px;
 }
 
 .container input:disabled {
-    outline: none;
+    border: none;
     cursor: not-allowed;
 }
 
