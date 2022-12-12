@@ -3,6 +3,11 @@ th {
     min-height: 25px;
 }
 
-td:not(:last-child()) {
-    min-width: 100px;
+tr>td {
+    min-width: fit-content;
+    white-space: nowrap;
+}
+
+tr>td:not(:last-child) {
+    padding-right: 10px;
 }
