@@ -2,7 +2,6 @@
     display: flex;
     justify-content: center;
     background-color: var(--green-color);
-    padding: 20px;
 }
 
 .footer__inner {
