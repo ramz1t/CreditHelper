@@ -40,8 +40,11 @@
 .login_form button {
     background: none;
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: 2px solid var(--text-color);
-    height: 30px;
+    height: 40px;
     margin-top: 10px;
     font-family: BoldTitle;
     line-height: 30px;

@@ -12,7 +12,7 @@
     --back-color: white;
     --text-color: rgb(23, 23, 23);
     --green-color: #ABDCAC;
-    --input-bg-color: white;
+    --input-bg-color: rgb(245, 245, 245);
     --error-color: red;
     --site-gray: rgb(220, 220, 220);
   }
