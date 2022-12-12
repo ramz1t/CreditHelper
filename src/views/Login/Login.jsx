@@ -32,7 +32,7 @@ const Login = () => {
     return (
         <div className={s.form_wrapper}>
             <form className={s.login_form} onSubmit={authorize}>
-                <h1 className={s.login_form__title}>{t('login_info')}</h1>
+                <h1 className={s.login_form__title}>{t('login')}</h1>
                 <p className={error ? s.login_form__error : s.login_form__error_disabled}>{error}</p>
                 <label htmlFor="login">{t('login_info')}</label>
                 <input
