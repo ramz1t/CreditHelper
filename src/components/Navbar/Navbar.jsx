@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 import s from './Navbar.module.css'
 import { BsPersonCircle } from 'react-icons/bs'
 import { GiHamburgerMenu } from 'react-icons/gi'
-import { HiOutlineLogin } from 'react-icons/hi'
+import { BiLogInCircle } from 'react-icons/bi'
 import AuthContext from '../../context/AuthProvider'
 import { useTranslation } from 'react-i18next';
 
@@ -26,7 +26,7 @@ const Navbar = () => {
                         <NavLink className={`${s.navbar__button} ${s.navbar__button_last} ${s.navbar__button_profile}`} to='/profile'><BsPersonCircle /><p>{user.username}</p></NavLink>
                     </>
                 ) : (
-                    <NavLink className={`${s.navbar__button} ${s.navbar__button_last} ${s.navbar__button_login}`} to="/login"><p>{t('login')}</p><HiOutlineLogin /></NavLink>
+                    <NavLink className={`${s.navbar__button} ${s.navbar__button_last} ${s.navbar__button_login}`} to="/login"><p>{t('login')}</p><BiLogInCircle /></NavLink>
                 )}
         </nav>
     )

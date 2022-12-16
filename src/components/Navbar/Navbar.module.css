@@ -116,3 +116,7 @@
 .navbar__button_profile>svg {
     scale: 1.5;
 }
+
+.navbar__button_login>svg {
+    scale: 1.5
+}

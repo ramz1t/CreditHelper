@@ -72,13 +72,13 @@ const CreditForm = () => {
                     <CInput disabled={saved} className={s.calculator_input} instance={rate} />
                     <CInput disabled={saved} className={s.calculator_input} instance={yearCount} />
                     <div className={s.infofield}>
-                        <p>{parseFloat(monthlyPayment).toFixed(2)}</p>
+                        <p>{parseFloat(monthlyPayment).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}</p>
                     </div>
                     <div className={s.infofield}>
-                        <p>{monthlyPayment ? (monthlyPayment * yearCount.value * 12).toFixed(2) : '0.00'}</p>
+                        <p>{monthlyPayment ? (monthlyPayment * yearCount.value * 12).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") : '0.00'}</p>
                     </div>
                     <div className={s.infofield}>
-                        {monthlyPayment ? <p>{(monthlyPayment * yearCount.value * 12 - creditSum.value).toFixed(2)}</p> : <p>0.00</p>}
+                        {monthlyPayment ? <p>{(monthlyPayment * yearCount.value * 12 - creditSum.value).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}</p> : <p>0.00</p>}
                     </div>
                     <div className={s.buttons_wrapper}>
                         <button onClick={() => setDeleted(true)} className={s.button_red}><FiMinus /></button>
