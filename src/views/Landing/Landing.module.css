@@ -27,3 +27,8 @@
 .container p {
     font-weight: 600;
 }
+
+canvas {
+    height: 100%;
+
+}
