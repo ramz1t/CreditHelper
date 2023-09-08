@@ -1,0 +1,90 @@
+.form_wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.login_form {
+  width: 250px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 2px solid var(--text-color);
+  border-radius: 15px;
+}
+
+.login_form *:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.login_form input,
+.login_form button,
+.login_form__error {
+  border-radius: 10px;
+}
+
+.login_form input {
+  height: 30px;
+  text-align: center;
+  border: none;
+  border: 2px solid var(--text-color);
+}
+
+.login_form input:focus {
+  border: 3px solid var(--text-color);
+  outline: none;
+}
+
+.login_form button {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--text-color);
+  height: 40px;
+  margin-top: 10px;
+  font-family: BoldTitle;
+  line-height: 30px;
+}
+
+.login_form button:hover {
+  color: var(--back-color);
+  background-color: var(--text-color);
+}
+
+.login_form button:disabled {
+  background-color: gainsboro;
+  border: 2px solid rgb(82, 82, 82);
+  color: grey;
+  cursor: not-allowed;
+}
+
+.login_form button:disabled:hover {
+  background-color: gainsboro;
+  color: grey;
+}
+
+.login_form__error {
+  background-color: pink;
+  border: 2px solid red;
+  padding: 10px;
+  color: red;
+  text-align: center;
+}
+
+.login_form__error_disabled {
+  display: none;
+}
+
+.login_form h1 {
+  text-align: center;
+}
+
+.login_form a {
+  text-decoration: underline;
+}

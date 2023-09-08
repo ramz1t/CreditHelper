@@ -1,0 +1,43 @@
+.container p[data-type="error"] {
+  color: var(--error-color);
+  border: 2px solid var(--error-color);
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  background-color: pink;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.table_wrapper {
+  overflow-x: auto;
+}
+
+.table_wrapper table {
+  width: 100%;
+}
+
+.export {
+  border: 2px solid var(--text-color);
+  font-family: BoldTitle;
+  cursor: pointer;
+  background: none;
+  border-radius: 15px;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: fit-content;
+}
+
+.export:hover {
+  background: rgba(94, 94, 94, 0.117);
+}
+
+.export svg {
+  scale: 1.3;
+}
