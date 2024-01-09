@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import s from "./Navbar.module.css";
 import { BsPersonCircle } from "react-icons/bs";
@@ -12,6 +12,11 @@ const Navbar = () => {
   const { user } = useContext(AuthContext);
   const [expanded, setExpanded] = useState(false);
   const { t } = useTranslation();
+
+  useEffect(() => {
+    setExpanded(false);
+  }, [window.location.pathname]);
+
   return (
     // eslint-disable-next-line jsx-a11y/role-supports-aria-props
     <nav className={s.container} aria-expanded={expanded}>
