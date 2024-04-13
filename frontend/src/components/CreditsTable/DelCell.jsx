@@ -10,7 +10,7 @@ const DelCell = ({ state, setState, id }) => {
 
     const handleDelete = () => {
         setLoading(true)
-        api.post('api/delete_credit', { id }).then(res => {
+        api.post('/api/delete_credit', { id }).then(res => {
             state = state.filter(el => el.id !== id)
             setLoading(false)
             setState(state)
