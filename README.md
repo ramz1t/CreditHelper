@@ -17,6 +17,6 @@
 
 By default frontend is connect to external backend server, to change it to local, switch commented lines in `hooks/useAxios.js` and `api/axios.js`
 ----
-URL: [creditshelper.ru](https://creditshelper.ru)
+URL: [Live Demo](http://timur.aboard.ru:34082/)
 
 Backend repo: [link](https://github.com/altr3s/CreditHelper_backend)
