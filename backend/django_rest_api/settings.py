@@ -8,15 +8,18 @@ import dotenv
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+
+FORCE_SCRIPT_NAME = '/credit-helper'
+
 dotenv.load_dotenv("../credit-infra/.env")
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 ALGORITHMS = os.getenv('ALGORITHMS')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["http://timur.aboard.ru", "localhost"]
 
 AUTH_USER_MODEL = 'rest_api.User'
 
@@ -116,7 +119,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-STATIC_URL = '/static/'
+STATIC_URL = '/credit-helper/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 

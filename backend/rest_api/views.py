@@ -62,7 +62,7 @@ class DeleteCreditFromDB(generics.CreateAPIView):
         data = request.data
         Credit.objects.filter(id=request.data['id']).delete()
         return Response({'Massage': 'success'})
-
+ 
 
 class LoginAPIView(generics.CreateAPIView):
     permission_classes = (AllowAny,)
@@ -72,9 +72,10 @@ class LoginAPIView(generics.CreateAPIView):
         user = request.data
         serializer = self.serializer_class(data=user)
         if serializer.is_valid():
-            return Response(serializer.data, status=200)
+            data = serializer.validate(user)
+            return Response(data, status=200)
         else:
-            return Response(serializer.data, status=403)
+            return Response(serializer.data, status=400)
 
 
 class ExcelView(generics.CreateAPIView):

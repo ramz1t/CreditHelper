@@ -7,7 +7,7 @@ const Footer = () => {
 
   const changeLang = (e) => {
     i18n.changeLanguage(e.target.value);
-    localStorage.setItem("lang", e.target.value);
+    localStorage.setItem("credit-helper_lang", e.target.value);
   };
 
   return (
@@ -22,7 +22,7 @@ const Footer = () => {
         <a href="https://github.com/ramz1t/CreditHelper" target="blank">
           Github
         </a>
-        <select onChange={changeLang}>
+        <select value={i18n.resolvedLanguage} onChange={changeLang}>
           <option value="ru">🇷🇺 Русский</option>
           <option value="en">🇺🇸 English</option>
         </select>

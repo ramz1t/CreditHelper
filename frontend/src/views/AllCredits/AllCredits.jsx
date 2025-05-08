@@ -20,9 +20,9 @@ const AllCredits = () => {
   const handleDownload = () => {
     setExporting(true);
     api
-      .get("api/download", {
+      .get("/api/download/", {
         responseType: "blob",
-        params: { locale: localStorage.getItem("lang") || "ru" },
+        params: { locale: localStorage.getItem("credit-helper_lang") || "en" },
       })
       .then((res) => {
         setExporting(false);
@@ -36,7 +36,7 @@ const AllCredits = () => {
 
   useEffect(() => {
     api
-      .get("/api/my_credits")
+      .get("/api/my_credits/")
       .then((res) => {
         setLoading(false);
         setCredits(res.data);

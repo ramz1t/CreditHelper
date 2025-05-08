@@ -10,7 +10,7 @@ const ConnectionStatus = () => {
 
   useEffect(() => {
     axios
-      .get("/api/health")
+      .get("/api/health/")
       .then((res) => {
         setOnline(true);
       })
@@ -20,7 +20,7 @@ const ConnectionStatus = () => {
   }, []);
 
   return (
-    <>{!online ? <p className={s.container}>{t("no_connection")}</p> : null}</>
+    <>{!online ? <p className={s.container}>{t("no_connection")}</p>  : null}</>
   );
 };
 

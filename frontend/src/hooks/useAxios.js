@@ -9,7 +9,7 @@ const useAxios = () => {
     const { authTokens, setUser, setAuthTokens } = useContext(AuthContext);
 
     const axiosInstance = axios.create({
-        baseURL: '',
+        baseURL: '/credit-helper/',
         headers: { Authorization: `Bearer ${authTokens?.access}` }
     });
 
@@ -19,11 +19,11 @@ const useAxios = () => {
 
         if (!isExpired) return req;
 
-        const response = await axios.post('/api/token/refresh', {
+        const response = await axios.post('/credit-helper/api/token/refresh/', {
             refresh: authTokens.refresh
         });
 
-        localStorage.setItem("authTokens", JSON.stringify(response.data));
+        localStorage.setItem("credit-helper_authTokens", JSON.stringify(response.data));
 
         setAuthTokens(response.data);
         setUser(jwt_decode(response.data.access));

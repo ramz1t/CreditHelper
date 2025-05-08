@@ -51,7 +51,6 @@ class RegisterSerializer(serializers.ModelSerializer):
 class LoginSerializer(serializers.Serializer):
     username = serializers.CharField(write_only=True)
     password = serializers.CharField(write_only=True)
-    access = serializers.CharField(max_length=255, read_only=True)
 
     def validate(self, data):
         username = data.get('username', None)

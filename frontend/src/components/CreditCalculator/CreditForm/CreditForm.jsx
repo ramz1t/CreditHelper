@@ -57,7 +57,7 @@ const CreditForm = () => {
     }
     setLoading(true);
     api
-      .post("/api/add_credit", {
+      .post("/api/add_credit/", {
         value: parseInt(creditSum.value),
         rate: parseFloat(rate.value),
         years_count: parseInt(yearCount.value),

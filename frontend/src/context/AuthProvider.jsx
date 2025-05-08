@@ -8,14 +8,15 @@ const AuthContext = createContext();
 export default AuthContext;
 
 export const AuthProvider = ({ children }) => {
+  const tokenStorageKey = "credit-helper_authTokens"
   const [authTokens, setAuthTokens] = useState(() =>
-    localStorage.getItem("authTokens")
-      ? JSON.parse(localStorage.getItem("authTokens"))
+    localStorage.getItem(tokenStorageKey)
+      ? JSON.parse(localStorage.getItem(tokenStorageKey))
       : null
   );
   const [user, setUser] = useState(() =>
-    localStorage.getItem("authTokens")
-      ? jwt_decode(localStorage.getItem("authTokens"))
+    authTokens
+      ? jwt_decode(authTokens.access)
       : null
   );
   const [loading, setLoading] = useState(true);
@@ -24,7 +25,7 @@ export const AuthProvider = ({ children }) => {
   const loginUser = async (username, password) => {
     try {
       const response = await axios.post(
-        "/api/token",
+        "/api/token/",
         JSON.stringify({ username, password }),
         {
           headers: {
@@ -33,13 +34,14 @@ export const AuthProvider = ({ children }) => {
           },
         }
       );
+      console.log(response)
       setAuthTokens(response.data);
-      localStorage.setItem("authTokens", JSON.stringify(response.data));
+      localStorage.setItem(tokenStorageKey, JSON.stringify(response.data));
       navigate("/home/add");
     } catch (err) {
       if (!err?.response) {
         return "Сервер не отвечает";
-      } else if (err?.response?.status === 403) {
+      } else if (err?.response?.status === 400) {
         return "Неверный логин или пароль";
       } else {
         return err?.response?.data?.message;
@@ -51,7 +53,7 @@ export const AuthProvider = ({ children }) => {
     try {
       // eslint-disable-next-line no-unused-vars
       const response = await axios.post(
-        "/api/register",
+        "/api/register/",
         JSON.stringify({ name, surname, username, email, password }),
         {
           headers: {
@@ -73,7 +75,7 @@ export const AuthProvider = ({ children }) => {
   const logoutUser = () => {
     setAuthTokens(null);
     setUser(null);
-    localStorage.removeItem("authTokens");
+    localStorage.removeItem(tokenStorageKey);
     navigate("/login");
   };
 
