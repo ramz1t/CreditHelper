@@ -17,9 +17,9 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 ALGORITHMS = os.getenv('ALGORITHMS')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["http://timur.aboard.ru", "localhost"]
+ALLOWED_HOSTS = ["timur.aboard.ru", "localhost"]
 
 AUTH_USER_MODEL = 'rest_api.User'
 
