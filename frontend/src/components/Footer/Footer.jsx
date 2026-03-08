@@ -25,6 +25,7 @@ const Footer = () => {
         <select value={i18n.resolvedLanguage} onChange={changeLang}>
           <option value="ru">🇷🇺 Русский</option>
           <option value="en">🇺🇸 English</option>
+          <option value="es">🇪🇸 Español</option>
         </select>
       </div>
     </div>
